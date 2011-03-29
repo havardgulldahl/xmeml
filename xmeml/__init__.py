@@ -125,9 +125,12 @@ class TrackItem:
         self.id=(dom.getAttribute('id') or None) #only for clipitem
         self.start_frame = int(self.parsed['start'])
         self.end_frame = int(self.parsed['end'])
+        self.ntsc = xmltextkey(dom.getElementsByTagName('rate')[0], 'ntsc') == u'TRUE'
+        self.timebase = xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase')
         if self.type=='clipitem':
             self.in_frame = int(self.parsed.get('in',-1))
             self.out_frame = int(self.parsed.get('out',-1))
+            self.filters = [ItemFilter(f) for (k, f) in self.parsed.items() if k == 'filter']
 
     def intersects(self, clip):
         """whether TrackItem intersects with clip which is a dictionary
@@ -362,6 +365,52 @@ class VideoSequence:
             for n in t.childNodes:
                 if n.nodeType==1 and n.tagName in ('clipitem','transitionitem'):
                     self.track_items.append( TrackItem(dom=n, track=my_track) )
+
+class ItemFilter:
+  """<filter> object representation (only on <clipitems>?)"""
+  id = name = mediatype = None
+  parameters = []
+  def __str__(self):
+    return '<Filter: %s/%s (%s) -- %i parameter(s)>' % (self.id, self.name, 
+         self.mediatype, len(self.parameters))
+  def __init__(self, karray):
+    self._key_array = karray
+    self.effect = karray.get('effect', None)
+    try:
+      self.id = self.effect.get('effectid', None)
+      self.name = self.effect.get('name', None)
+      self.mediatype = self.effect.get('mediatype', None)
+      self.parameters = [EffectParameter(pm) for (k, pm) in \
+             self.effect.items() if k == 'parameter']
+    except:
+      raise
+
+class EffectParameter:
+  """<parameter> object representation"""
+  id = name = None
+  min = max = value = -1
+  values = []
+  def __str__(self):
+    if self.values:
+      return '<Parameter: %s -- %s>' % (self.id, self.values.items())
+    else:
+      return '<Parameter: %s -- %s>' % (self.id, self.value)
+  def __init__(self, karray):
+    self._key_array = karray
+    self.id = karray.get('parameterid', None)
+    self.name = karray.get('name', None)
+    self.min = karray.get('valuemin', -1)
+    self.max = karray.get('valuemax', -1)
+    self.value = karray.get('value', -1)
+    self.values = []
+    for k,v in karray.items():
+      if k != 'keyframe': continue
+      when = v.get('when', None)
+      value = v.get('value', None)
+      if when and value:
+        #self.values.append( (float(when), float(value)) )
+        self.values.append( (when, value) )
+    
 
 class KeyedArray:
   """A list which can also be set and got like a dictionary
