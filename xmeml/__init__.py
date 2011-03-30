@@ -64,7 +64,7 @@ def dict2xml(dic, doc, parentTag):
 
 ## XMEML objects
 
-class Clip:
+class Clip(object):
     """Not <clipitem> but a 'clip' of a section of a sequence.  
     This can be used to compose a new sequence from others
     """
@@ -82,7 +82,7 @@ class Clip:
         return [t.clip(clip,start) for t in self.track_items]
 
 
-class Track:
+class Track(object):
     "<track> in <xmeml> represented as an object"
     def __init__(self,dom=None,source=None):
         self.clips = []
@@ -100,7 +100,7 @@ class Track:
             self.children = deepcopy(source.children)
             self.source = source
 
-class TrackItem:
+class TrackItem(object):
     "<clipitem> or <transitionitem> object representation"
     def __init__(self, 
                  dom=None, 
@@ -126,10 +126,14 @@ class TrackItem:
         self.start_frame = int(self.parsed['start'])
         self.end_frame = int(self.parsed['end'])
         self.ntsc = xmltextkey(dom.getElementsByTagName('rate')[0], 'ntsc') == u'TRUE'
-        self.timebase = xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase')
+        self.timebase = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
         if self.type=='clipitem':
+            self.name = self.parsed.get('name',None)
             self.in_frame = int(self.parsed.get('in',-1))
             self.out_frame = int(self.parsed.get('out',-1))
+            self.duration = self.out_frame - self.in_frame
+            self.mediatype = xmltextkey(dom.getElementsByTagName('sourcetrack')[0], 'mediatype')
+            self.file_path = xmltextkey(dom.getElementsByTagName('file')[0], 'pathurl')
             self.filters = [ItemFilter(f) for (k, f) in self.parsed.items() if k == 'filter']
 
     def intersects(self, clip):
@@ -199,7 +203,7 @@ class TrackItem:
         #manipulates <start>, <end>
         pass
 
-class XmemlFileRef:
+class XmemlFileRef(object):
     """object representation of <file> in <xmeml>"""
     source = None
     def __init__(self, dom=None, ):
@@ -214,7 +218,7 @@ class XmemlFileRef:
             self.pathurl = xmltextkey(dom, 'pathurl')
             self.name = xmltextkey(dom, 'name')
 
-class VideoSequence:
+class VideoSequence(object):
     dom = None
     #defaults
     timecode_zero = 0 
@@ -366,8 +370,8 @@ class VideoSequence:
                 if n.nodeType==1 and n.tagName in ('clipitem','transitionitem'):
                     self.track_items.append( TrackItem(dom=n, track=my_track) )
 
-class ItemFilter:
-  """<filter> object representation (only on <clipitems>?)"""
+class ItemFilter(object):
+  """<filter> object representation on <clip> and <clipitems>"""
   id = name = mediatype = None
   parameters = []
   def __str__(self):
@@ -385,7 +389,7 @@ class ItemFilter:
     except:
       raise
 
-class EffectParameter:
+class EffectParameter(object):
   """<parameter> object representation"""
   id = name = None
   min = max = value = -1
@@ -412,7 +416,7 @@ class EffectParameter:
         self.values.append( (when, value) )
     
 
-class KeyedArray:
+class KeyedArray(object):
   """A list which can also be set and got like a dictionary
   This might not be the most intuitive interface, but it was the easiest
   way to add multiple elements of the same tagname support to the XML methods
