@@ -240,7 +240,6 @@ class TrackItem(object):
         if not self.mediatype == 'audio': return None # is video
         f = []
         audiolevels = self.getfilter('audiolevels')
-        print audiolevels
         if isinstance(audiolevels, basestring): # single value = single level for whole clip
             if(float(audiolevels) > threshold):
                 return [(self.start(), self.end()),]
@@ -290,6 +289,8 @@ class XmemlFileRef(object):
             #redundant
             self.pathurl = xmltextkey(dom, 'pathurl')
             self.name = xmltextkey(dom, 'name')
+            self.rate = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
+            self.duration = float(xmltextkey(dom, 'duration'))
             m = self.parsed.get('media', KeyedArray())
             if m.get('video', None):
                 self.mediatype = 'video'
