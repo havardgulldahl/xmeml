@@ -162,6 +162,11 @@ class TrackItem(object):
             self.transitions['following'] = t
             return t.end_frame
 
+    def getfilter(self, filtername):
+        for f in self.filters:
+            if f.id != filtername: continue
+            return f.parameters[0].values or f.parameters[0].value
+            
     def intersects(self, clip):
         """whether TrackItem intersects with clip which is a dictionary
         containing two keys 'start_frame' and 'end_frame'
@@ -230,15 +235,43 @@ class TrackItem(object):
         pass
 
     def audibleframes(self, threshold=0.1):
-        "in the case of audio, calculates the amount of frames the clipitem is audible"
+        "Returns list of (start, end) pairs of audible chunks"
         if not self.type == 'clipitem': return False  # is transition
         if not self.mediatype == 'audio': return None # is video
+        f = []
+        audiolevels = self.getfilter('audiolevels')
+        print audiolevels
+        if isinstance(audiolevels, basestring): # single value = single level for whole clip
+            if(float(audiolevels) > threshold):
+                return [(self.start(), self.end()),]
+        else: # audiolevels is a list of (keyframe, level) tuples
+            keyframelist = audiolevels[:]
+            # add the (implicit) keyframe end point
+            keyframelist += (self.duration, keyframelist[-1][1]),
+            prevframe = float(self.start())
+            thisvolume = 0.0
+            audible = False
+            for keyframe, volume in keyframelist:
+                thisframe = prevframe+float(keyframe)
+                thisvolume = float(volume)
+                if thisvolume > threshold:
+                    if audible is True: continue
+                    audible = True
+                else:
+                    # level is below threshold, write out range so far
+                    if audible is False: continue
+                    audible = False
+                    f.append( (prevframe, thisframe) )
+        return f
+
+    def xaudibleframes(self, threshold=0.1):
+        "in the case of audio, calculates the amount of frames the clipitem is audible"
 
         frames = 0
         for f in self.filters:
             if f.id != "audiolevels": continue
             for param in f.parameters:
-                frames += audibleframes(self, param.values or param.value, threshold)
+                frames += audibleframes(self, threshold)
         return frames
 
 class XmemlFileRef(object):
@@ -505,23 +538,25 @@ class KeyedArray(object):
       else:
         self.dic[k] = dict[k]
 
-def audibleframes(clipitem, values, threshold=0.1):
-    print clipitem, values
-    frames = ()
-    prev = 0.0
-    if isinstance(values, basestring): # single value for whole clipitem
-        if float(values) > threshold:
-            frames = (clipitem.start(), clipitem.end())
-    else: # a list of keyframes and their respective volume level
-        # add the (implicit) keyframe end point
-        keyframelist = values[:]
-        keyframelist += (clipitem.duration, values[-1][1]),
-        _in = _out = None
-        for keyframe, volume in keyframelist:
-            if float(volume) > threshold: 
-                if _in is None:
-                    _in = float(keyframe)
-            else:
-                _out = float(keyframe)
-    return frames
+class Volume(object):
+    """Static methods to convert to and from gain and dB.
+
+Quoting the dev library:
+"The volume level for the audio track of a clip is encoded by the Audio Levels effect. 
+The parameter Level expresses linear gain rather than decibels. 
+To convert gain to decibels, use the formula 
+                    decibels = 20 * log10(Level). 
+Conversely, to convert decibels to gain, use 
+                    Level = 10 ^ (decibels / 20)."
+
+"""
+    gain = decibel = None
+    def __init__(self, gain=None, decibel=None):
+        from math import log
+        if gain:
+            self.gain = gain
+            self.decibel = 20 * log(gain, 10)
+        if decibel:
+            self.decibel = decibel
+            self.gain = 10 ^ (decibel / 20)  
 
