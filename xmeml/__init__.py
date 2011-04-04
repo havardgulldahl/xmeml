@@ -1,3 +1,4 @@
+#-*- encoding:utf8 -*-
 import xml.dom.minidom as dom
 from uuid import uuid1
 from copy import deepcopy
@@ -102,11 +103,17 @@ class Track(object):
 
 class TrackItem(object):
     "<clipitem> or <transitionitem> object representation"
+    source_files = {}
+    transitions = {'preceeding':None,
+                   'following':None}
     def __init__(self, 
                  dom=None, 
                  source=None, inout=None, 
-                 track=None
+                 track=None,
+                 source_files={}
                  ):
+        self.track = track
+        self.source_files = source_files
         if source and inout and not dom:
             self.source = source
         elif dom:
@@ -114,7 +121,6 @@ class TrackItem(object):
             self.parse(dom)
         else:
             raise Error('TrackItem init arguments must be [dom] xor [source, inout]')
-        self.track = track
 
     def parse(self, dom):
         self.parsed = xml2dict(dom, go_deep=True)
@@ -133,8 +139,28 @@ class TrackItem(object):
             self.out_frame = int(self.parsed.get('out',-1))
             self.duration = self.out_frame - self.in_frame
             self.mediatype = xmltextkey(dom.getElementsByTagName('sourcetrack')[0], 'mediatype')
-            self.file_path = xmltextkey(dom.getElementsByTagName('file')[0], 'pathurl')
+            file_id = dom.getElementsByTagName('file')[0].getAttribute('id')
+            if file_id and self.source_files.has_key(file_id):
+                self.file = self.source_files[file_id]
+            else:
+                self.file = XmemlFileRef(dom.getElementsByTagName('file')[0])
             self.filters = [ItemFilter(f) for (k, f) in self.parsed.items() if k == 'filter']
+           
+    def start(self):
+        if self.start_frame != -1:
+            return self.start_frame
+        else:
+            t = self.track.clips[self.track.clips.index(self)-1]
+            self.transitions['preceeding'] = t
+            return t.start_frame
+
+    def end(self):
+        if self.end_frame != -1:
+            return self.end_frame
+        else:
+            t = self.track.clips[self.track.clips.index(self)+1]
+            self.transitions['following'] = t
+            return t.end_frame
 
     def intersects(self, clip):
         """whether TrackItem intersects with clip which is a dictionary
@@ -203,9 +229,22 @@ class TrackItem(object):
         #manipulates <start>, <end>
         pass
 
+    def audibleframes(self, threshold=0.1):
+        "in the case of audio, calculates the amount of frames the clipitem is audible"
+        if not self.type == 'clipitem': return False  # is transition
+        if not self.mediatype == 'audio': return None # is video
+
+        frames = 0
+        for f in self.filters:
+            if f.id != "audiolevels": continue
+            for param in f.parameters:
+                frames += audibleframes(self, param.values or param.value, threshold)
+        return frames
+
 class XmemlFileRef(object):
     """object representation of <file> in <xmeml>"""
     source = None
+    mediatype = None
     def __init__(self, dom=None, ):
         if dom:
             self.dom = dom
@@ -213,10 +252,16 @@ class XmemlFileRef(object):
             self.source = 'dom'
 
             self.parsed = xml2dict(dom, go_deep=True)
+            if not self.parsed: return # empty node
 
             #redundant
             self.pathurl = xmltextkey(dom, 'pathurl')
             self.name = xmltextkey(dom, 'name')
+            m = self.parsed.get('media', KeyedArray())
+            if m.get('video', None):
+                self.mediatype = 'video'
+            elif m.get('audio', None):
+                self.mediatype = 'audio'
 
 class VideoSequence(object):
     dom = None
@@ -368,7 +413,9 @@ class VideoSequence(object):
             self.tracks.append(my_track)
             for n in t.childNodes:
                 if n.nodeType==1 and n.tagName in ('clipitem','transitionitem'):
-                    self.track_items.append( TrackItem(dom=n, track=my_track) )
+                    my_track_item = TrackItem(dom=n, track=my_track, source_files=self.source_files)
+                    self.track_items.append( my_track_item )
+                    my_track.clips.append( my_track_item )
 
 class ItemFilter(object):
   """<filter> object representation on <clip> and <clipitems>"""
@@ -458,4 +505,23 @@ class KeyedArray(object):
       else:
         self.dic[k] = dict[k]
 
+def audibleframes(clipitem, values, threshold=0.1):
+    print clipitem, values
+    frames = ()
+    prev = 0.0
+    if isinstance(values, basestring): # single value for whole clipitem
+        if float(values) > threshold:
+            frames = (clipitem.start(), clipitem.end())
+    else: # a list of keyframes and their respective volume level
+        # add the (implicit) keyframe end point
+        keyframelist = values[:]
+        keyframelist += (clipitem.duration, values[-1][1]),
+        _in = _out = None
+        for keyframe, volume in keyframelist:
+            if float(volume) > threshold: 
+                if _in is None:
+                    _in = float(keyframe)
+            else:
+                _out = float(keyframe)
+    return frames
 
