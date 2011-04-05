@@ -261,7 +261,13 @@ class TrackItem(object):
                     if audible is False: continue
                     audible = False
                     f.append( (prevframe, thisframe) )
-        return f
+        # remove duplicates
+        _f = {}
+        for _e in f:
+            _f[_e] = 1
+        ff = _f.keys()
+        ff.sort()
+        return ff
 
     def xaudibleframes(self, threshold=0.1):
         "in the case of audio, calculates the amount of frames the clipitem is audible"
@@ -289,7 +295,7 @@ class XmemlFileRef(object):
             #redundant
             self.pathurl = xmltextkey(dom, 'pathurl')
             self.name = xmltextkey(dom, 'name')
-            self.rate = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
+            self.timebase = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
             self.duration = float(xmltextkey(dom, 'duration'))
             m = self.parsed.get('media', KeyedArray())
             if m.get('video', None):
