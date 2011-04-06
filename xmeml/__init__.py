@@ -546,7 +546,7 @@ class Volume(object):
         v1 = Volume(gain=0.4)
         db = v1.decibel
         ...
-        v2 = Volume(decibel=60)
+        v2 = Volume(decibel=-60)
         gain = v2.gain
 
 Quoting the dev library:
@@ -559,12 +559,12 @@ Conversely, to convert decibels to gain, use
 
 """
     def __init__(self, gain=None, decibel=None):
-        from math import log
+        from math import log10
         self.gain = self.decibel = None
         if gain:
-            self.gain = gain
-            self.decibel = 20 * log(gain, 10)
+            self.gain = float(gain)
+            self.decibel = 20 * log10(self.gain)
         if decibel:
-            self.decibel = decibel
-            self.gain = 10 ^ (decibel / 20)  
+            self.decibel = float(decibel)
+            self.gain = 10 ** (self.decibel / 20)  
 
