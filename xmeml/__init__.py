@@ -238,6 +238,8 @@ class TrackItem(object):
         "Returns list of (start, end) pairs of audible chunks"
         if not self.type == 'clipitem': return False  # is transition
         if not self.mediatype == 'audio': return None # is video
+        if isinstance(threshold, Volume) and threshold.gain:
+            threshold = threshold.gain
         f = []
         audiolevels = self.getfilter('audiolevels')
         if isinstance(audiolevels, basestring): # single value = single level for whole clip
@@ -268,16 +270,6 @@ class TrackItem(object):
         ff = _f.keys()
         ff.sort()
         return ff
-
-    def xaudibleframes(self, threshold=0.1):
-        "in the case of audio, calculates the amount of frames the clipitem is audible"
-
-        frames = 0
-        for f in self.filters:
-            if f.id != "audiolevels": continue
-            for param in f.parameters:
-                frames += audibleframes(self, threshold)
-        return frames
 
 class XmemlFileRef(object):
     """object representation of <file> in <xmeml>"""
@@ -546,7 +538,16 @@ class KeyedArray(object):
         self.dic[k] = dict[k]
 
 class Volume(object):
-    """Static methods to convert to and from gain and dB.
+    """Helper class to convert to and from gain and dB.
+
+    Create an instance with your known value as keyword argument, and you'll be
+    able get the unknown value from the object:
+
+        v1 = Volume(gain=0.4)
+        db = v1.decibel
+        ...
+        v2 = Volume(decibel=60)
+        gain = v2.gain
 
 Quoting the dev library:
 "The volume level for the audio track of a clip is encoded by the Audio Levels effect. 
@@ -557,9 +558,9 @@ Conversely, to convert decibels to gain, use
                     Level = 10 ^ (decibels / 20)."
 
 """
-    gain = decibel = None
     def __init__(self, gain=None, decibel=None):
         from math import log
+        self.gain = self.decibel = None
         if gain:
             self.gain = gain
             self.decibel = 20 * log(gain, 10)
