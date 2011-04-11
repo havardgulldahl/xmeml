@@ -420,7 +420,9 @@ class VideoSequence(object):
         self.tracks = []
         self.track_items = []
         seq = xmldom.getElementsByTagName('sequence')[0]
+        self.id = seq.getAttribute('id')
         self.uuid = xmltextkey(seq, 'uuid')
+        self.name = xmltextkey(seq, 'name')
         self.parsed = xml2dict(seq, go_deep=True, 
                                drop=('track','uuid','duration'))
 
