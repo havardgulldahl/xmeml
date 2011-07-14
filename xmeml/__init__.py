@@ -28,10 +28,9 @@ print xmldom2.toxml()
 ###XML methods for stupid-XML structures like <clipitem> and <file>
 def xmltextkey(domnode, key):
     "xmltextkey(domnode, 'foo') for <domnode><foo>bar</foo></domnode> will yield u'bar' "
-    v = domnode.getElementsByTagName(key)
-    if v.length:
-        return v[0].firstChild.data
-    else:
+    try:
+        return getFirstChild(domnode, key).firstChild.data
+    except:
         return None
 
 def xml2dict(domnode, go_deep=False, drop=tuple()):
@@ -62,6 +61,13 @@ def dict2xml(dic, doc, parentTag):
         p.appendChild(doc.createTextNode(unicode(dic)))
     return p
 
+def getFirstChild(dom, tagname):
+    "Get the first child element whose name matches 'tagname'"
+    for n in dom.childNodes:
+        if n.nodeType == n.ELEMENT_NODE and n.tagName == tagname:
+            return n
+    return None
+
 
 ## XMEML objects
 
@@ -69,7 +75,6 @@ class Clip(object):
     """Not <clipitem> but a 'clip' of a section of a sequence.  
     This can be used to compose a new sequence from others
     """
-    duration = 0
     def __init__(self, start_frame, end_frame, track_items, base_sequence):
         self.start_frame = int(start_frame)
         self.end_frame = int(end_frame)
@@ -103,15 +108,15 @@ class Track(object):
 
 class TrackItem(object):
     "<clipitem> or <transitionitem> object representation"
-    source_files = {}
-    transitions = {'preceeding':None,
-                   'following':None}
     def __init__(self, 
                  dom=None, 
                  source=None, inout=None, 
                  track=None,
                  source_files={}
                  ):
+        self.name = None # only clipitem has name
+        self.transitions = {'preceeding':None,
+                           'following':None}
         self.track = track
         self.source_files = source_files
         if source and inout and not dom:
@@ -131,20 +136,22 @@ class TrackItem(object):
         self.id=(dom.getAttribute('id') or None) #only for clipitem
         self.start_frame = int(self.parsed['start'])
         self.end_frame = int(self.parsed['end'])
-        self.ntsc = xmltextkey(dom.getElementsByTagName('rate')[0], 'ntsc') == u'TRUE'
-        self.timebase = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
+        rate = getFirstChild(dom, 'rate')
+        self.ntsc = xmltextkey(rate, 'ntsc') == u'TRUE'
+        self.timebase = float(xmltextkey(rate, 'timebase'))
         if self.type=='clipitem':
             self.name = self.parsed.get('name',None)
             self.in_frame = int(self.parsed.get('in',-1))
             self.out_frame = int(self.parsed.get('out',-1))
             self.duration = self.out_frame - self.in_frame
-            self.mediatype = xmltextkey(dom.getElementsByTagName('sourcetrack')[0], 'mediatype')
-            file_id = dom.getElementsByTagName('file')[0].getAttribute('id')
+            firstfile = getFirstChild(dom, 'file')
+            file_id = firstfile.getAttribute('id')
             if file_id and self.source_files.has_key(file_id):
                 self.file = self.source_files[file_id]
             else:
-                self.file = XmemlFileRef(dom.getElementsByTagName('file')[0])
+                self.file = XmemlFileRef(firstfile)
             self.filters = [ItemFilter(f) for (k, f) in self.parsed.items() if k == 'filter']
+        #self.dom.unlink() # try to free some mem
            
     def start(self):
         if self.start_frame != -1:
@@ -237,7 +244,7 @@ class TrackItem(object):
     def audibleframes(self, threshold=0.1):
         "Returns list of (start, end) pairs of audible chunks"
         if not self.type == 'clipitem': return False  # is transition
-        if not self.mediatype == 'audio': return None # is video
+        if not self.track.type == 'audio': return None # is video
         if isinstance(threshold, Volume) and threshold.gain:
             threshold = threshold.gain
         f = []
@@ -273,9 +280,8 @@ class TrackItem(object):
 
 class XmemlFileRef(object):
     """object representation of <file> in <xmeml>"""
-    source = None
-    mediatype = None
     def __init__(self, dom=None, ):
+        mediatype = None
         if dom:
             self.dom = dom
             self.id = dom.getAttribute('id')
@@ -287,20 +293,26 @@ class XmemlFileRef(object):
             #redundant
             self.pathurl = xmltextkey(dom, 'pathurl')
             self.name = xmltextkey(dom, 'name')
-            self.timebase = float(xmltextkey(dom.getElementsByTagName('rate')[0], 'timebase'))
-            self.duration = float(xmltextkey(dom, 'duration'))
+            try:
+                self.timebase = float(xmltextkey(getFirstChild(dom, 'rate'), 'timebase'))
+                self.duration = float(xmltextkey(dom, 'duration'))
+            except IndexError:
+                # not in this xmeml version
+                self.timebase = self.duration = None
             m = self.parsed.get('media', KeyedArray())
             if m.get('video', None):
                 self.mediatype = 'video'
             elif m.get('audio', None):
                 self.mediatype = 'audio'
+            #self.dom.unlink()
+
+
 
 class VideoSequence(object):
-    dom = None
-    #defaults
-    timecode_zero = 0 
-    rate = 29.97
     def __init__(self, file=None, xml_string=None, clip_list=None):
+        self.dom = None
+        self.timecode_zero = 0 
+        self.rate = 29.97
         if file:
             self.dom = dom.parse(file)
             self.parse(self.dom)
@@ -419,7 +431,7 @@ class VideoSequence(object):
 
         self.tracks = []
         self.track_items = []
-        seq = xmldom.getElementsByTagName('sequence')[0]
+        seq = getFirstChild(xmldom.documentElement, 'sequence')
         self.id = seq.getAttribute('id')
         self.uuid = xmltextkey(seq, 'uuid')
         self.name = xmltextkey(seq, 'name')
@@ -432,15 +444,18 @@ class VideoSequence(object):
         else:
             self.rate = float(rate['timebase'])
 
-        self.timecode_zero = int(self.parsed['timecode']['frame']) #double
+        try:
+            self.timecode_zero = int(self.parsed['timecode']['frame']) #double
+        except KeyError:
+            pass # older versions of xmeml dont have timecode
 
-        files = xmldom.getElementsByTagName('file')
+        files = seq.getElementsByTagName('file')
         for f in files:
             if f.childNodes.length: #not just pointer
                 id = f.getAttribute('id')
                 self.source_files[id] = XmemlFileRef(dom=f)
                 
-        tracks = xmldom.getElementsByTagName('track')
+        tracks = seq.getElementsByTagName('track')
         track_index = 0
         for t in tracks:
             my_track = Track(dom=t)
@@ -451,14 +466,17 @@ class VideoSequence(object):
                     self.track_items.append( my_track_item )
                     my_track.clips.append( my_track_item )
 
+    def freemem(self):
+        self.xmldom.unlink()
+
 class ItemFilter(object):
   """<filter> object representation on <clip> and <clipitems>"""
-  id = name = mediatype = None
-  parameters = []
   def __str__(self):
     return '<Filter: %s/%s (%s) -- %i parameter(s)>' % (self.id, self.name, 
          self.mediatype, len(self.parameters))
   def __init__(self, karray):
+    self.id = self.name = self.mediatype = None
+    self.parameters = []
     self._key_array = karray
     self.effect = karray.get('effect', None)
     try:
@@ -472,9 +490,6 @@ class ItemFilter(object):
 
 class EffectParameter(object):
   """<parameter> object representation"""
-  id = name = None
-  min = max = value = -1
-  values = []
   def __str__(self):
     if self.values:
       return '<Parameter: %s -- %s>' % (self.id, self.values.items())
