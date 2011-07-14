@@ -94,7 +94,6 @@ class Track(object):
         self.clips = []
 
         if dom:
-            self.dom = dom
             self.type = dom.parentNode.tagName #audio/video
             self.children = {
                 'enabled':xmltextkey(dom, 'enabled'),
@@ -123,7 +122,6 @@ class TrackItem(object):
         if source and inout and not dom:
             self.source = source
         elif dom:
-            self.dom = dom
             self.parse(dom)
         else:
             raise Error('TrackItem init arguments must be [dom] xor [source, inout]')
@@ -152,7 +150,6 @@ class TrackItem(object):
             else:
                 self.file = XmemlFileRef(firstfile)
             self.filters = [ItemFilter(f) for (k, f) in self.parsed.items() if k == 'filter']
-        #self.dom.unlink() # try to free some mem
            
     def start(self):
         if self.start_frame != -1:
@@ -284,7 +281,6 @@ class XmemlFileRef(object):
     def __init__(self, dom=None, ):
         self.mediatype = None
         if dom:
-            self.dom = dom
             self.id = dom.getAttribute('id')
             self.source = 'dom'
 
