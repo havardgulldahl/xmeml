@@ -119,6 +119,7 @@ class TrackItem(object):
                            'following':None}
         self.track = track
         self.source_files = source_files
+        self.mediatype = track.type
         if source and inout and not dom:
             self.source = source
         elif dom:
@@ -145,7 +146,7 @@ class TrackItem(object):
             self.out_frame = int(self.parsed.get('out',-1))
             self.duration = self.out_frame - self.in_frame
             firstfile = getFirstChild(dom, 'file')
-            file_id = firstfile.getAttribute('id')
+            file_id = firstfile and firstfile.getAttribute('id')
             if file_id and self.source_files.has_key(file_id):
                 self.file = self.source_files[file_id]
             else:
@@ -281,7 +282,7 @@ class TrackItem(object):
 class XmemlFileRef(object):
     """object representation of <file> in <xmeml>"""
     def __init__(self, dom=None, ):
-        mediatype = None
+        self.mediatype = None
         if dom:
             self.dom = dom
             self.id = dom.getAttribute('id')
@@ -304,7 +305,6 @@ class XmemlFileRef(object):
                 self.mediatype = 'video'
             elif m.get('audio', None):
                 self.mediatype = 'audio'
-            #self.dom.unlink()
 
 
 
@@ -466,8 +466,14 @@ class VideoSequence(object):
                     self.track_items.append( my_track_item )
                     my_track.clips.append( my_track_item )
 
+    def get_track_clipitems(self, mediatype=None):
+        for i in self.track_items:
+            if not i.type == 'clipitem': continue
+            if mediatype is not None and i.file.mediatype != mediatype: continue
+            yield i
+
     def freemem(self):
-        self.xmldom.unlink()
+        self.dom.unlink()
 
 class ItemFilter(object):
   """<filter> object representation on <clip> and <clipitems>"""
