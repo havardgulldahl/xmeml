@@ -2,6 +2,83 @@
 
 import lxml.etree as etree
 
+class Range(object):
+
+    def __init__(self, iterable=None):
+        if iterable is not None:
+            self.start, self.end = iterable
+        else:
+            self.start = None
+            self.end = None
+
+    def __repr__(self):
+        return "Range"+repr(self.get())
+
+    def __string__(self):
+        return u'<Range: %.5(start)f–%.5(end)f>' % vars(self)
+    
+    def __add__(self, other):
+        self.extend( (other.start, other.end) )
+        return self
+
+    def __len__(self):
+        if None in (self.start, self.end):
+            raise TypeError("Range is not complete")
+        return self.end-self.start
+
+    def __eq__(self, other):
+        return self.start == other.start and self.end == other.end
+
+    def __iter__(self):
+        for z in (self.start, self.end):
+            yield z
+
+    def extend(self, iterable):
+        start, end = iterable
+        if self.start is None or start < self.start:
+            self.start = start
+        if end > self.end:
+            self.end = end
+
+    def get(self):
+        return (self.start, self.end)
+
+    def overlaps(self, other):
+        return other.start <= self.start <= other.end or \
+                self.start <= other.start <= self.end
+
+class Ranges(object):
+    def __init__(self, range=None):
+        self.r = []
+        if range:
+            self.extend(range)
+
+    def __repr__(self):
+        return repr(self.r)
+
+    def __str__(self):
+        return u'<Ranges: %i ranges, totalling %.2d frames>' % (len(self.r), 
+                                                                self.total())
+
+    def __add__(self, other):
+        for range in other.r:
+            self.extend(range)
+        return self
+
+    def extend(self, otherrange):
+        for range in self.r:
+            if range == otherrange:
+                return None
+            elif range.overlaps(otherrange):
+                range.extend(otherrange)
+                return True
+            else:
+        self.r.append(otherrange)
+        return True
+
+    def total(self):
+        return sum([len(r) for r in self.r])
+
 class BaseObject(object):
     """Base class for *Item, File"""
     def __init__(self, tree):
@@ -13,23 +90,64 @@ class Item(BaseObject):
     def __init__(self, tree):
         super(Item, self).__init__(tree)
         self.ntsc = tree.findtext('rate/ntsc', '') == 'TRUE'
-        self.start = int(tree.findtext('start'))
-        self.end = int(tree.findtext('end'))
+        self.start = float(tree.findtext('start'))
+        self.end = float(tree.findtext('end'))
         self.id = tree.get('id')
 
+class TransitionItem(Item):
+    """transitionitem
+    Description: Encodes a transition in a track.
+    Parent:      track
+    Subelements: rate, *start, *end, *alignment, effect, *name
+    """
+    # <!ELEMENT transitionitem (name | rate | start | end | alignment | effect)*>
+
+    def __init__(self, tree):
+        super(TransitionItem, self).__init__(tree)
+        # A string specifying an alignment for a transition. 
+        # Valid entries are start, center, end, end-black, or start-black.
+        self.alignment = tree.findtext('alignment')
+        self.effect = Effect(tree.find('effect'))
+
 class ClipItem(Item):
+    """
+    Description: Encodes a clip in a track.
+    Parent:      track
+    Subelements: +*name, +duration, +rate, +*start, +*end, link, syncoffset, 
+                 *enabled, *in, *out, *masterclipid, *subclipmasterid, 
+                 ismasterclip, *logginginfo, file, *timecode, *marker, 
+                 *anamorphic, *alphatype, *alphareverse, *labels, *comments, 
+                 sourcetrack, *compositemode, subclipinfo, *filter, stillframe,
+                 *stillframeoffset, *sequence, multiclip,mediadelay,
+                 subframeoffset, *mixedratesoffset,filmdata, pixelaspectratio,
+                 fielddominance, gamma, primarytimecode*, itemhistory
+     Attribute:  id
+     Notes:      Note that start, end, link, syncoffset, and enabled are
+                 subelements of clipitem, but not of clip.
+    """
     # (name | duration | rate | enabled | in  | out | start | end  | anamorphic | alphatype | alphareverse | compositemode | masterclipid  |  ismasterclip | labels | comments | stillframeoffset | sequence |  subclipinfo |  logginginfo | stillframe | timecode | syncoffset | file |  primarytimecode | marker  | filter |  sourcetrack | link | subframeoffset | pixelaspectratio | fielddominance)
     def __init__(self, tree):
         super(ClipItem, self).__init__(tree)
         self.tree = tree
-        self.duration = float(tree.findtext('duration'))
         self.inpoint = int(tree.findtext('in'))
         self.outpoint = int(tree.findtext('out'))
+        self.duration = self.outpoint-self.inpoint
+        if self.start == -1.0: # start is within a transition
+            if self.end > -1.0: # we can calculate using the duration
+                self.start = self.end - self.duration
+            else:
+                # self.start = 
+                self.start = self.getprevtransition().end
+        elif self.end == -1.0: # end is within a transition
+            if self.start > -1.0: # we can calculate using the duration
+                self.end = self.start + self.duration
+            else:
+                self.end = self.getfollowingtransition().start
         fileref = tree.find('file')
-        if fileref.findtext('name'):
-            self.file = File(fileref)
+        if fileref.findtext('name'): # is it a full <file> object?
+            self.file = File(fileref) # yes
         else:
-            self.file = File.filelist[fileref.get('id')]
+            self.file = File.filelist[fileref.get('id')] # no, just a reference to a previous obj.
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
 
@@ -41,68 +159,46 @@ class ClipItem(Item):
             if e.effectid == 'audiolevels': return e
         return None
 
-    def audibleframes(self, threshold=0.05):
+    def getprevtransition(self):
+        item = self.tree.xpath('./preceding-sibling::transitionitem[1]')[0]
+        return TransitionItem(item)
+
+    def getfollowingtransition(self):
+        item = self.tree.xpath('./following-sibling::transitionitem[1]')[0]
+        return TransitionItem(item)
+
+    def audibleframes(self, threshold=0.0001):
         "Returns list of (start, end) pairs of audible chunks"
         if not self.mediatype == 'audio': return None # is video
         if isinstance(threshold, Volume) and threshold.gain:
             threshold = threshold.gain
-        f = []
-
         levels = self.getlevels()
         keyframelist = list(levels.parameters)
         if not len(keyframelist):
             # no list of params, use <value>
             if levels.value > threshold:
-                return [ ( self.start, self.end ), ]
+                return Ranges(Range( (self.start, self.end) ) )
             else:
-                return []
+                return Ranges()
         prevframe = self.start
         thisvolume = 0.0
         audible = False
         keyframelist += ( (self.duration, keyframelist[-1][1]), )
-        print keyframelist
+        ranges = Ranges()
         for keyframe, volume in keyframelist:
             thisframe = prevframe + keyframe
-            if thisvolume > threshold:
+            if volume > threshold:
                 if audible is True: continue
                 audible = True
             else:
                 if audible is False: continue
                 # level is below threshold, write out range so far
+                ranges.extend(Range( (prevframe, thisframe) ) )
                 audible = False
-                f.append(  (prevframe, thisframe) )
-
-        old = """
-        else: # audiolevels is a list of (keyframe, level) tuples
-            keyframelist = audiolevels[:]
-            # add the (implicit) keyframe end point
-            keyframelist += (self.duration, keyframelist[-1][1]),
-            prevframe = float(self.start())
-            thisvolume = 0.0
-            audible = False
-            for keyframe, volume in keyframelist:
-                thisframe = prevframe+float(keyframe)
-                thisvolume = float(volume)
-                if thisvolume > threshold:
-                    if audible is True: continue
-                    audible = True
-                else:
-                    # level is below threshold, write out range so far
-                    if audible is False: continue
-                    audible = False
-                    f.append( (prevframe, thisframe) )
-
-        if isinstance(audiolevels, basestring): # single value = single level for whole clip
-            if(float(audiolevels) > threshold):
-                return [(self.start(), self.end()),]
-        """
-        # remove duplicates
-        _f = {}
-        for _e in f:
-            _f[_e] = 1
-        ff = _f.keys()
-        ff.sort()
-        return ff
+        #write out the last frame if it hasn't been written
+        if audible is True:
+            ranges.extend(Range( (prevframe, thisframe) ) )
+        return ranges
 
 class File(BaseObject):
     # <!ELEMENT file (name | rate | duration | media | timecode | pathurl | width | height | mediaSource)*>
@@ -119,14 +215,24 @@ class File(BaseObject):
             self.mediatype = 'audio'
 
 class Effect(object):
+    """Eeffect
+    Description: Encodes an effect or processing operation. 
+    Parents:     transitionitem, filter, generatoritem
+    Subelements: +*name, +*effectid, +*effecttype, +*mediatype, *effectcategory,
+                parameter, keyframe, appspecificdata, wipecode, wipeaccuracy, rate,
+                startratio, endratio, reverse, duration , privatestate, multiclip,
+                effectclass
+  
+     """
     def __init__(self, tree):
         self.name = tree.findtext('name')
         self.effectid = tree.findtext('effectid')
         params = tree.find('parameter')
-        self.parameters = self.getparameters(params)
-        self.value = params.findtext('value', 0.0)
-        self.max = float(tree.findtext('parameter/valuemax'))
-        self.min = float(tree.findtext('parameter/valuemin'))
+        if params is not None:
+            self.parameters = self.getparameters(params)
+            self.value = params.findtext('value', 0.0)
+            self.max = float(tree.findtext('parameter/valuemax'))
+            self.min = float(tree.findtext('parameter/valuemin'))
 
     def getparameters(self, tree):
         for el in tree.iterchildren(tag='keyframe'):
@@ -176,14 +282,21 @@ class XmemlParser(object):
                     yield ClipItem(clip)
                 except KeyError:
                     # not audio clip
-                    pass
+                    continue
 
+    def audibleranges(self):
+        clips = {}
+        for clip in self.iteraudioclips():
+            if clips.has_key(clip.name):
+                clips[clip.name] += clip.audibleframes()
+            else:
+                clips[clip.name] = clip.audibleframes()
+        return clips
+            
 
 if __name__ == '__main__':
     import sys
     xmeml = XmemlParser(sys.argv[1])
-    for clip in xmeml.iteraudioclips():
-        print clip.audibleframes()
-
-
+    a = xmeml.audibleranges()
+    print a
 
