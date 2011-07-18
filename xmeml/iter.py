@@ -65,6 +65,12 @@ class Ranges(object):
             self.extend(range)
         return self
 
+    def __len__(self):
+        return sum([len(r) for r in self.r])
+
+    def __iter__(self):
+        return iter(self.r)
+
     def extend(self, otherrange):
         for range in self.r:
             if range == otherrange:
@@ -74,9 +80,6 @@ class Ranges(object):
                 return True
         self.r.append(otherrange)
         return True
-
-    def total(self):
-        return sum([len(r) for r in self.r])
 
 class BaseObject(object):
     """Base class for *Item, File"""
@@ -265,6 +268,7 @@ class XmemlParser(object):
     def __init__(self, filename):
         self.tree = etree.parse(filename)
         self.version = self.tree.getroot().get('version')
+        self.name = self.tree.getroot().find('sequence').get('id')
 
     def iteraudioclips(self):
         audio = self.tree.getroot().find('sequence/media/audio')
@@ -278,12 +282,14 @@ class XmemlParser(object):
 
     def audibleranges(self):
         clips = {}
+        files = {}
         for clip in self.iteraudioclips():
             if clips.has_key(clip.name):
                 clips[clip.name] += clip.audibleframes()
             else:
                 clips[clip.name] = clip.audibleframes()
-        return clips
+            files.update( {clip.name: clip.file} )
+        return clips, files
             
 
 if __name__ == '__main__':
