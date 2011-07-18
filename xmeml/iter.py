@@ -72,7 +72,6 @@ class Ranges(object):
             elif range.overlaps(otherrange):
                 range.extend(otherrange)
                 return True
-            else:
         self.r.append(otherrange)
         return True
 
