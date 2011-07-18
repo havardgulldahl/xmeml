@@ -50,7 +50,7 @@ class Range(object):
 class Ranges(object):
     def __init__(self, range=None):
         self.r = []
-        if range:
+        if range is not None:
             self.extend(range)
 
     def __repr__(self):
@@ -132,16 +132,9 @@ class ClipItem(Item):
         self.outpoint = int(tree.findtext('out'))
         self.duration = self.outpoint-self.inpoint
         if self.start == -1.0: # start is within a transition
-            if self.end > -1.0: # we can calculate using the duration
-                self.start = self.end - self.duration
-            else:
-                # self.start = 
-                self.start = self.getprevtransition().end
-        elif self.end == -1.0: # end is within a transition
-            if self.start > -1.0: # we can calculate using the duration
-                self.end = self.start + self.duration
-            else:
-                self.end = self.getfollowingtransition().start
+            self.start = self.getprevtransition().end
+        if self.end == -1.0: # end is within a transition
+            self.end = self.getfollowingtransition().start
         fileref = tree.find('file')
         if fileref.findtext('name'): # is it a full <file> object?
             self.file = File(fileref) # yes
