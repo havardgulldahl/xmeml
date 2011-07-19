@@ -1,4 +1,20 @@
 #-*- encoding: utf-8 -*-
+#
+# This is an xmeml parser that tries to be super fast, 
+# using the lxml module for all xml stuff and python's 
+# efficient iterative parsing whenever possible.
+#
+# This leads to a dramatic decrease of both mem and cpu
+# usage compared to the minidom api of the standard xmeml
+# code.
+#
+# This module is not a full replacement though, 
+# and has a totally different api (it never made sense
+# to keep it, since everything is done differently
+# from the original parser.)
+#
+# (C) 2011 havard.gulldahl@nrk.no
+# License: BSD
 
 import lxml.etree as etree
 
