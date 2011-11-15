@@ -74,7 +74,7 @@ class Ranges(object):
 
     def __str__(self):
         return u'<Ranges: %i ranges, totalling %.2d frames>' % (len(self.r), 
-                                                                self.total())
+                                                                len(self))
 
     def __add__(self, other):
         for range in other.r:
@@ -181,7 +181,7 @@ class ClipItem(Item):
     def audibleframes(self, threshold=0.0001):
         "Returns list of (start, end) pairs of audible chunks"
         if not self.mediatype == 'audio': return None # is video
-        if isinstance(threshold, Volume) and threshold.gain:
+        if isinstance(threshold, Volume) and threshold.gain is not None:
             threshold = threshold.gain
         levels = self.getlevels()
         keyframelist = list(levels.parameters)
