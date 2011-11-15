@@ -18,6 +18,8 @@
 
 import lxml.etree as etree
 
+AUDIOTHRESHOLD=0.0001
+
 class Range(object):
 
     def __init__(self, iterable=None):
@@ -178,7 +180,7 @@ class ClipItem(Item):
         item = self.tree.xpath('./following-sibling::transitionitem[1]')[0]
         return TransitionItem(item)
 
-    def audibleframes(self, threshold=0.0001):
+    def audibleframes(self, threshold=AUDIOTHRESHOLD):
         "Returns list of (start, end) pairs of audible chunks"
         if not self.mediatype == 'audio': return None # is video
         if isinstance(threshold, Volume) and threshold.gain is not None:
@@ -281,6 +283,7 @@ Conversely, to convert decibels to gain, use
             self.gain = 10 ** (self.decibel / 20)  
 
 class XmemlParser(object):
+
     def __init__(self, filename):
         self.tree = etree.parse(filename)
         self.version = self.tree.getroot().get('version')
@@ -296,14 +299,14 @@ class XmemlParser(object):
                     # not audio clip
                     continue
 
-    def audibleranges(self):
+    def audibleranges(self, threshold=AUDIOTHRESHOLD):
         clips = {}
         files = {}
         for clip in self.iteraudioclips():
             if clips.has_key(clip.name):
-                clips[clip.name] += clip.audibleframes()
+                clips[clip.name] += clip.audibleframes(threshold)
             else:
-                clips[clip.name] = clip.audibleframes()
+                clips[clip.name] = clip.audibleframes(threshold)
             files.update( {clip.name: clip.file} )
         return clips, files
             
