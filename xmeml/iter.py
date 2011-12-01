@@ -72,7 +72,7 @@ class Ranges(object):
             self.extend(range)
 
     def __repr__(self):
-        return repr(self.r)
+        return 'Ranges: '+repr(self.r)
 
     def __str__(self):
         return u'<Ranges: %i ranges, totalling %.2d frames>' % (len(self.r), 
@@ -156,11 +156,7 @@ class ClipItem(Item):
             self.start = self.getprevtransition().end
         if self.end == -1.0: # end is within a transition
             self.end = self.getfollowingtransition().start
-        fileref = tree.find('file')
-        if fileref.findtext('name'): # is it a full <file> object?
-            self.file = File(fileref) # yes
-        else:
-            self.file = File.filelist[fileref.get('id')] # no, just a reference to a previous obj.
+        self.file = File.filelist[tree.find('file').get('id')] 
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
 
@@ -196,10 +192,15 @@ class ClipItem(Item):
         prevframe = self.start
         thisvolume = 0.0
         audible = False
-        keyframelist += ( (self.duration, keyframelist[-1][1]), )
+        # add last frame to the end of keyframelist (i.e. extend the 
+        # level curve to the end)
+        keyframelist = keyframelist + [ (self.duration, keyframelist[-1][1]) ]
         ranges = Ranges()
         for keyframe, volume in keyframelist:
             thisframe = prevframe + keyframe
+            if thisframe > self.end:
+                thisframe = self.end
+                break
             if volume > threshold:
                 if audible is True: continue
                 audible = True
@@ -288,16 +289,14 @@ class XmemlParser(object):
         self.tree = etree.parse(filename)
         self.version = self.tree.getroot().get('version')
         self.name = self.tree.getroot().find('sequence').get('id')
+        # find all file references
+        File.filelist = {f.get('id'):File(f) for f in self.tree.getroot().iter('file') if f.findtext('name') is not None}
 
     def iteraudioclips(self):
         audio = self.tree.getroot().find('sequence/media/audio')
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
-                try:
-                    yield ClipItem(clip)
-                except KeyError:
-                    # not audio clip
-                    continue
+                yield ClipItem(clip)
 
     def audibleranges(self, threshold=AUDIOTHRESHOLD):
         clips = {}
@@ -313,7 +312,9 @@ class XmemlParser(object):
 
 if __name__ == '__main__':
     import sys
+    from pprint import pprint as pp
     xmeml = XmemlParser(sys.argv[1])
-    a = xmeml.audibleranges()
-    print a
+    #pp( [cl.name for cl in xmeml.iteraudioclips() if cl.name.startswith('SCD0')])
+    clips, files = xmeml.audibleranges(0.0300)
+    pp([(clip,r) for (clip,r) in clips.iteritems() if clip.startswith('SCD048720')])
 
