@@ -159,6 +159,7 @@ class ClipItem(Item):
         self.file = File.filelist[tree.find('file').get('id')] 
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
+        self.linkedclips = [Link(el) for el in tree.iter('link')]
 
     def getfilters(self):
         return [ Effect(el) for el in self.tree.iterdescendants(tag='effect') ]
@@ -189,18 +190,25 @@ class ClipItem(Item):
                 return Ranges(Range( (self.start, self.end) ) )
             else:
                 return Ranges()
+
         prevframe = self.start
         thisvolume = 0.0
         audible = False
         # add last frame to the end of keyframelist (i.e. extend the 
         # level curve to the end)
-        keyframelist = keyframelist + [ (self.duration, keyframelist[-1][1]) ]
+        keyframelist = keyframelist + [ (self.start+self.outpoint-self.inpoint, keyframelist[-1][1]) ]
         ranges = Ranges()
+        # TODO: explain this routine
         for keyframe, volume in keyframelist:
-            thisframe = prevframe + keyframe
-            if thisframe > self.end:
-                thisframe = self.end
+            # adjust keyframes in regard to .inpoint and .outpoint
+            if keyframe - self.inpoint < 0:
+                # keyframe falls outside of the current clip, to the left
+                continue
+            if keyframe > self.outpoint:
+                # keyframe falls outside of the current clip, to the right
+                thisframe = self.start + self.outpoint
                 break
+            thisframe = prevframe + keyframe - self.inpoint # TODO: explain
             if volume > threshold:
                 if audible is True: continue
                 audible = True
@@ -213,6 +221,14 @@ class ClipItem(Item):
         if audible is True:
             ranges.extend(Range( (prevframe, thisframe) ) )
         return ranges
+
+class Link(object):
+    """<link> elements"""
+    def __init__(self, tree):
+        self.linkclipref = tree.findtext('linkclipref')
+        self.mediatype = tree.findtext('mediatype')
+        self.trackindex = tree.findtext('trackindex')
+        self.clipindex = tree.findtext('clipindex')
 
 class File(BaseObject):
     # <!ELEMENT file (name | rate | duration | media | timecode | pathurl | width | height | mediaSource)*>
@@ -292,11 +308,20 @@ class XmemlParser(object):
         # find all file references
         File.filelist = {f.get('id'):File(f) for f in self.tree.getroot().iter('file') if f.findtext('name') is not None}
 
-    def iteraudioclips(self):
+    def iteraudioclips(self, onlypureaudio=True):
+        """Iterator to get all audio clips. 
+        
+        onlypureaudio parameter controls whether to limit to clips that have no video 
+        clip assosiated with it (i.e. music, sound effects). Defaults to true.
+        """
         audio = self.tree.getroot().find('sequence/media/audio')
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
-                yield ClipItem(clip)
+                ci = ClipItem(clip)
+                if not onlypureaudio:
+                    yield ci
+                elif ci.file.mediatype == 'audio':
+                    yield ci
 
     def audibleranges(self, threshold=AUDIOTHRESHOLD):
         clips = {}
@@ -316,5 +341,5 @@ if __name__ == '__main__':
     xmeml = XmemlParser(sys.argv[1])
     #pp( [cl.name for cl in xmeml.iteraudioclips() if cl.name.startswith('SCD0')])
     clips, files = xmeml.audibleranges(0.0300)
-    pp([(clip,r) for (clip,r) in clips.iteritems() if clip.startswith('SCD048720')])
+    pp([(clip,r) for (clip,r) in clips.iteritems()])# if clip.startswith('SCD048720')])
 
