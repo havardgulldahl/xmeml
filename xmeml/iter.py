@@ -128,6 +128,8 @@ class TransitionItem(Item):
         # Valid entries are start, center, end, end-black, or start-black.
         self.alignment = tree.findtext('alignment')
         self.effect = Effect(tree.find('effect'))
+        self.duration = self.end - self.start
+        self.centerframe = self.start+(self.duration/2)
 
 class ClipItem(Item):
     """
@@ -153,9 +155,9 @@ class ClipItem(Item):
         self.outpoint = int(tree.findtext('out'))
         self.duration = self.outpoint-self.inpoint
         if self.start == -1.0: # start is within a transition
-            self.start = self.getprevtransition().end
+            self.start = self.getprevtransition().centerframe
         if self.end == -1.0: # end is within a transition
-            self.end = self.getfollowingtransition().start
+            self.end = self.getfollowingtransition().centerframe
         self.file = File.filelist[tree.find('file').get('id')] 
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
@@ -191,30 +193,67 @@ class ClipItem(Item):
             else:
                 return Ranges()
 
-        prevframe = self.start
-        thisvolume = 0.0
+        # add our subclip inpoint to the keyframelist if it's not in it already.
+        #
+        if self.inpoint < keyframelist[0][0]:
+            keyframelist.insert(0, (self.inpoint, keyframelist[0][1]))
+        else:
+            i = 0
+            while self.inpoint > keyframelist[i][0]:
+                try: 
+                    if self.inpoint < keyframelist[i+1][0]:
+                        # add inpoint keyframe with volume of next keyframe
+                        #print ' add inpoint keyframe with volume of next keyframe'
+                        keyframelist.insert(i+1, (self.inpoint, keyframelist[i+1][1]))
+                except IndexError:
+                    # all keyframes in keyframelist are _before_ inpoint
+                    #print ' all keyframes in keyframelist are _before_ inpoint'
+                    keyframelist.append((self.inpoint, keyframelist[i][1]))
+                i = i + 1
+            del i
+
+        # add our sublicp outpoint to the keyframelist, too
+        if self.outpoint > keyframelist[-1][0]:
+            # last existing keyframe is earlier than outpoint, add last keyframe volume
+            keyframelist.append((self.outpoint, keyframelist[-1][1]))
+        else:
+            i = len(keyframelist) - 1
+            while self.outpoint < keyframelist[i][0]:
+                try:
+                    if self.outpoint > keyframelist[i-1][0]:
+                        # add outpoint keyframe with volume of previous keyframe
+                        #print ' add outpoint keyframe with volume of previous keyframe'
+                        keyframelist.insert(i, (self.outpoint, keyframelist[i][1]))
+                except IndexError:
+                    # TODO: properly diagnose and fix this
+                    raise
+                i = i - 1
+            del i
+
+        # now, run through the keyframelist and keep the keyframes that are within
+        # our audible range (self.inpoint - self.outpoint), whose volume is
+        # at or above our current gain level ('threshold' method argument)
+        #
         audible = False
-        # add last frame to the end of keyframelist (i.e. extend the 
-        # level curve to the end)
-        keyframelist = keyframelist + [ (self.start+self.outpoint-self.inpoint, keyframelist[-1][1]) ]
         ranges = Ranges()
-        # TODO: explain this routine
         for keyframe, volume in keyframelist:
-            # adjust keyframes in regard to .inpoint and .outpoint
-            if keyframe - self.inpoint < 0:
+            # discard everything outside .inpoint and .outpoint
+            if keyframe < self.inpoint:
                 # keyframe falls outside of the current clip, to the left
                 continue
             if keyframe > self.outpoint:
                 # keyframe falls outside of the current clip, to the right
-                thisframe = self.start + self.outpoint
-                break
-            thisframe = prevframe + keyframe - self.inpoint # TODO: explain
-            if volume > threshold:
-                if audible is True: continue
+                break # we're finished
+            # store this frame, and translate the keyframe from local to the clip
+            # to global to the full sequence
+            thisframe = self.start + (keyframe - self.inpoint)
+            if volume >= threshold:
+                if audible is True: continue # previous frame was also audible
                 audible = True
+                prevframe = thisframe
             else:
-                if audible is False: continue
-                # level is below threshold, write out range so far
+                if audible is False: continue # previous frame was also inaudible
+                # level has gone below threshold, write out range so far
                 ranges.extend(Range( (prevframe, thisframe) ) )
                 audible = False
         #write out the last frame if it hasn't been written
