@@ -153,6 +153,9 @@ class ClipItem(Item):
         self.tree = tree
         self.inpoint = int(tree.findtext('in'))
         self.outpoint = int(tree.findtext('out'))
+        if self.inpoint > self.outpoint:
+            # clip is reversed, just flip it back
+            self.inpoint, self.outpoint = self.outpoint, self.inpoint
         self.duration = self.outpoint-self.inpoint
         if self.start == -1.0: # start is within a transition
             self.start = self.getprevtransition().centerframe
@@ -226,6 +229,7 @@ class ClipItem(Item):
                         keyframelist.insert(i, (self.outpoint, keyframelist[i][1]))
                 except IndexError:
                     # TODO: properly diagnose and fix this
+                    #print self.name, keyframelist, i
                     raise
                 i = i - 1
             del i
