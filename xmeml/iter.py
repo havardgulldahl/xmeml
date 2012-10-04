@@ -161,10 +161,15 @@ class ClipItem(Item):
             self.start = self.getprevtransition().centerframe
         if self.end == -1.0: # end is within a transition
             self.end = self.getfollowingtransition().centerframe
-        self.file = File.filelist[tree.find('file').get('id')] 
+        try:
+            self.file = File.filelist[tree.find('file').get('id')]  
+        except AttributeError:
+            print self.name
+            self.file = None # there might be a nested <sequence> instead of a file
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
         self.linkedclips = [Link(el) for el in tree.iter('link')]
+        self.isnestedsequence = tree.find('sequence/media') is not None
 
     def getfilters(self):
         return [ Effect(el) for el in self.tree.iterdescendants(tag='effect') ]
@@ -345,9 +350,15 @@ Conversely, to convert decibels to gain, use
 class XmemlParser(object):
 
     def __init__(self, filename):
-        self.tree = etree.parse(filename)
-        self.version = self.tree.getroot().get('version')
-        self.name = self.tree.getroot().find('sequence').get('id')
+        try:
+            self.tree = etree.parse(filename)
+        except AttributeError:
+            raise XmemlFileError('Parsing xml failed. Seems like a broken XMEML file.')
+        try:
+            self.version = self.tree.getroot().get('version')
+            self.name = self.tree.getroot().find('sequence').get('id')
+        except AttributeError:
+            raise XmemlFileError('No sequence found. Seems like a broken XMEML file.')
         # find all file references
         File.filelist = {f.get('id'):File(f) for f in self.tree.getroot().iter('file') if f.findtext('name') is not None}
 
@@ -361,9 +372,19 @@ class XmemlParser(object):
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
                 ci = ClipItem(clip)
+                if ci.isnestedsequence:
+                    print clip.find('sequence').get('name')
+                    for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
+                        for nestedclip in nestedtrack.iterchildren(tag='clipitem'):
+                            nestedci = ClipItem(nestedclip)
+                            if not onlypureaudio:
+                                yield nestedci
+                            elif nestedci.file.mediatype == 'audio':
+                                yield nestedci
+                    continue
                 if not onlypureaudio:
                     yield ci
-                elif ci.file.mediatype == 'audio':
+                elif ci.file is not None and ci.file.mediatype == 'audio':
                     yield ci
 
     def audibleranges(self, threshold=AUDIOTHRESHOLD):
