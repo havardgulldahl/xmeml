@@ -164,7 +164,7 @@ class ClipItem(Item):
         try:
             self.file = File.filelist[tree.find('file').get('id')]  
         except AttributeError:
-            print self.name
+            #print self.name
             self.file = None # there might be a nested <sequence> instead of a file
         self.mediatype = tree.findtext('sourcetrack/mediatype')
         self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
@@ -373,7 +373,7 @@ class XmemlParser(object):
             for clip in track.iterchildren(tag='clipitem'):
                 ci = ClipItem(clip)
                 if ci.isnestedsequence:
-                    print clip.find('sequence').get('name')
+                    #print clip.find('sequence').get('name')
                     for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
                         for nestedclip in nestedtrack.iterchildren(tag='clipitem'):
                             nestedci = ClipItem(nestedclip)
