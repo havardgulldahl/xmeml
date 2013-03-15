@@ -1,15 +1,7 @@
-from xmeml import VideoSequence
+if __name__ == '__main__':
+    import sys
+    xmeml = XmemlParser(sys.argv[1])
+    clips, files = xmeml.audibleranges(0.0300) # find audio clips that are audible (volume above a certain threshold
+    print([clip for clip in clips.iteritems()]) # iterate wit the iter protocol
 
-v1 = VideoSequence(file='examples/Conecta Test XML.xml')
-v2 = VideoSequence(file='examples/Mark P XML.xml')
-#print len(v1.track_items)
 
-clip1 = v1.clip(1000, 4000, units='frames')
-clip2 = v2.clip(300, 500, units='seconds')
-
-xmldom1,dumb_uuid = v1.clips2dom([clip1])
-xmldom2,dumb_uuid = v2.clips2dom([clip2])
-xmldom3,dumb_uuid = v2.clips2dom([clip1, clip2])
-
-#print xmldom1.toprettyxml() #probably won't work in Final Cut Pro
-print xmldom2.toxml()
