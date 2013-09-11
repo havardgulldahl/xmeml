@@ -20,8 +20,10 @@ import lxml.etree as etree
 
 AUDIOTHRESHOLD=0.0001
 
-class Range(object):
+class XmemlFileError(Exception):
+    pass
 
+class Range(object):
     def __init__(self, iterable=None):
         if iterable is not None:
             self.start, self.end = iterable
