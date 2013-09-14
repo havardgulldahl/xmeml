@@ -389,12 +389,14 @@ class XmemlParser(object):
         if not self.tree.getroot().tag == 'xmeml':
             raise XmemlFileError('xmeml tag not found. This is not an XMEML file.')
 
+        self.version = self.tree.getroot().get('version')
         if self.tree.getroot().find('sequence') is not None: # fcp7 exports per sequence
             self.root = self.tree.getroot()
-        elif self.tree.getroot().find('project/children/sequence') is not None: # Premiere cs6 (and others?) encodes the whole project
+        elif self.tree.getroot().find('project/children/sequence') is not None: # Premiere cs6 encodes the whole project like this
             self.root = self.tree.getroot().find('project/children')
+        elif self.tree.getroot().find('project/children/bin/children/sequence') is not None: # fcp7 encodes the whole project like this
+            self.root = self.tree.getroot().find('project/children/bin/children')
         try:
-            self.version = self.root.get('version')
             self.name = self.root.find('sequence').get('id')
         except AttributeError:
             raise XmemlFileError('No sequence found. Nothing to do.')
