@@ -105,16 +105,46 @@ class BaseObject(object):
     """Base class for *Item, File"""
     def __init__(self, tree):
         self.name = tree.findtext('name')
-        self.timebase = float(tree.findtext('rate/timebase'))
+        try:
+            self.timebase = float(tree.findtext('rate/timebase'))
+        except TypeError:
+            self.timebase = None
 
 class Item(BaseObject):
     """Base class for ClipItem, TransitionItem, GeneratorItem"""
     def __init__(self, tree):
         super(Item, self).__init__(tree)
-        self.ntsc = tree.findtext('rate/ntsc', '') == 'TRUE'
         self.start = float(tree.findtext('start'))
         self.end = float(tree.findtext('end'))
         self.id = tree.get('id')
+        try:
+            self.ntsc = tree.findtext('rate/ntsc') == 'TRUE'
+        except TypeError:
+            self.ntsc = None
+
+    def getframerate(self):
+        """Return a tuple(float, string): actual framerate and common video type. E.g. (23.976, '24P')
+
+        Note that actual framerate is not always the same as timebase, hence this method.
+
+        Implemented as spec'ed on p. 160 at:
+        https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/FinalCutPro_XML/FinalCutPro_XML.pdf
+        """
+        if self.timebase is None:
+            return (None, None)
+        elif self.timebase == 24:
+            if self.ntsc: return (23.976, '24P')
+            else: return (24, 'Film')
+        elif self.timebase == 25:
+            return (25, 'PAL')
+        elif self.timebase == 30:
+            if self.ntsc: return (29.97, 'NTSC/HD')
+            else: return (30, 'Video/HD')
+        elif self.timebase == 50:
+            return (50, 'HD (50Hz)')
+        elif self.timebase == 60:
+            if self.ntsc: return (59.94, 'HD (59.94Hz)')
+            else: return (60, 'HD (60Hz)')
 
 class TransitionItem(Item):
     """transitionitem
@@ -356,13 +386,20 @@ class XmemlParser(object):
             self.tree = etree.parse(filename)
         except AttributeError:
             raise XmemlFileError('Parsing xml failed. Seems like a broken XMEML file.')
+        if not self.tree.getroot().tag == 'xmeml':
+            raise XmemlFileError('xmeml tag not found. This is not a XMEML file.')
+
+        if self.tree.getroot().find('sequence') is not None: # fcp7 exports per sequence
+            self.root = self.tree.getroot()
+        elif self.tree.getroot().find('project/children/sequence') is not None: # Premiere cs6 (and others?) encodes the whole project
+            self.root = self.tree.getroot().find('project/children')
         try:
-            self.version = self.tree.getroot().get('version')
-            self.name = self.tree.getroot().find('sequence').get('id')
+            self.version = self.root.get('version')
+            self.name = self.root.find('sequence').get('id')
         except AttributeError:
             raise XmemlFileError('No sequence found. Seems like a broken XMEML file.')
         # find all file references
-        File.filelist = {f.get('id'):File(f) for f in self.tree.getroot().iter('file') if f.findtext('name') is not None}
+        File.filelist = {f.get('id'):File(f) for f in self.root.iter('file') if f.findtext('name') is not None}
 
     def iteraudioclips(self, onlypureaudio=True):
         """Iterator to get all audio clips. 
@@ -370,7 +407,7 @@ class XmemlParser(object):
         onlypureaudio parameter controls whether to limit to clips that have no video 
         clip assosiated with it (i.e. music, sound effects). Defaults to true.
         """
-        audio = self.tree.getroot().find('sequence/media/audio')
+        audio = self.root.find('sequence/media/audio')
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
                 ci = ClipItem(clip)
