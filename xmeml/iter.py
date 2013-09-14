@@ -13,7 +13,7 @@
 # to keep it, since everything is done differently
 # from the original parser.)
 #
-# (C) 2011 havard.gulldahl@nrk.no
+# (C) 2011-2013 havard.gulldahl@nrk.no
 # License: BSD
 
 import lxml.etree as etree
@@ -387,7 +387,7 @@ class XmemlParser(object):
         except AttributeError:
             raise XmemlFileError('Parsing xml failed. Seems like a broken XMEML file.')
         if not self.tree.getroot().tag == 'xmeml':
-            raise XmemlFileError('xmeml tag not found. This is not a XMEML file.')
+            raise XmemlFileError('xmeml tag not found. This is not an XMEML file.')
 
         if self.tree.getroot().find('sequence') is not None: # fcp7 exports per sequence
             self.root = self.tree.getroot()
@@ -397,7 +397,7 @@ class XmemlParser(object):
             self.version = self.root.get('version')
             self.name = self.root.find('sequence').get('id')
         except AttributeError:
-            raise XmemlFileError('No sequence found. Seems like a broken XMEML file.')
+            raise XmemlFileError('No sequence found. Nothing to do.')
         # find all file references
         File.filelist = {f.get('id'):File(f) for f in self.root.iter('file') if f.findtext('name') is not None}
 
