@@ -20,6 +20,31 @@ import lxml.etree as etree
 
 AUDIOTHRESHOLD=0.0001
 
+def getframerate(timebase, ntsc):
+    """Return a tuple(float, string): actual framerate and common video type. E.g. (23.976, '24P')
+
+    Note that actual framerate is not always the same as <timebase>, hence this method.
+
+    Implemented as spec'ed on p. 160 at:
+    https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/FinalCutPro_XML/FinalCutPro_XML.pdf
+    """
+    #print "getframerate: ", repr(timebase), repr(ntsc)
+    if timebase is None:
+        return (None, None)
+    elif timebase == 24:
+        if ntsc: return (23.976, '24P')
+        else: return (24, 'Film')
+    elif timebase == 25:
+        return (25, 'PAL')
+    elif timebase == 30:
+        if ntsc: return (29.97, 'NTSC/HD')
+        else: return (30, 'Video/HD')
+    elif timebase == 50:
+        return (50, 'HD (50Hz)')
+    elif timebase == 60:
+        if ntsc: return (59.94, 'HD (59.94Hz)')
+        else: return (60, 'HD (60Hz)')
+
 class XmemlFileError(Exception):
     pass
 
@@ -123,28 +148,7 @@ class Item(BaseObject):
             self.ntsc = None
 
     def getframerate(self):
-        """Return a tuple(float, string): actual framerate and common video type. E.g. (23.976, '24P')
-
-        Note that actual framerate is not always the same as timebase, hence this method.
-
-        Implemented as spec'ed on p. 160 at:
-        https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/FinalCutPro_XML/FinalCutPro_XML.pdf
-        """
-        if self.timebase is None:
-            return (None, None)
-        elif self.timebase == 24:
-            if self.ntsc: return (23.976, '24P')
-            else: return (24, 'Film')
-        elif self.timebase == 25:
-            return (25, 'PAL')
-        elif self.timebase == 30:
-            if self.ntsc: return (29.97, 'NTSC/HD')
-            else: return (30, 'Video/HD')
-        elif self.timebase == 50:
-            return (50, 'HD (50Hz)')
-        elif self.timebase == 60:
-            if self.ntsc: return (59.94, 'HD (59.94Hz)')
-            else: return (60, 'HD (60Hz)')
+        return getframerate(self.timebase, self.ntsc)
 
 class TransitionItem(Item):
     """transitionitem
@@ -180,9 +184,10 @@ class ClipItem(Item):
                  subelements of clipitem, but not of clip.
     """
     # (name | duration | rate | enabled | in  | out | start | end  | anamorphic | alphatype | alphareverse | compositemode | masterclipid  |  ismasterclip | labels | comments | stillframeoffset | sequence |  subclipinfo |  logginginfo | stillframe | timecode | syncoffset | file |  primarytimecode | marker  | filter |  sourcetrack | link | subframeoffset | pixelaspectratio | fielddominance)
-    def __init__(self, tree):
+    def __init__(self, tree, sequenceframerate=None):
         super(ClipItem, self).__init__(tree)
         self.tree = tree
+        self.sequenceframerate = sequenceframerate # the framerate of the containing sequence
         self.inpoint = int(tree.findtext('in'))
         self.outpoint = int(tree.findtext('out'))
         if self.inpoint > self.outpoint:
@@ -302,6 +307,14 @@ class ClipItem(Item):
             ranges.extend(Range( (prevframe, thisframe) ) )
         return ranges
 
+
+    def getframerate(self): 
+        # reimplemented from Item to take self.sequenceframerate into account on audio clips
+        if self.file.type == 'audio':
+            return self.sequenceframerate
+        else:
+            return super(ClipItem, self).getframerate()
+
 class Link(object):
     """<link> elements"""
     def __init__(self, tree):
@@ -394,7 +407,7 @@ class XmemlParser(object):
             self.root = self.tree.getroot()
         elif self.tree.getroot().find('project/children/sequence') is not None: # Premiere cs6 encodes the whole project like this
             self.root = self.tree.getroot().find('project/children')
-        elif self.tree.getroot().find('project/children/bin/children/sequence') is not None: # fcp7 encodes the whole project like this
+        elif self.tree.getroot().find('project/children/bin/children/sequence') is not None: # fcp7 and Premiere cc encodes the whole project like this
             self.root = self.tree.getroot().find('project/children/bin/children')
         try:
             self.name = self.root.find('sequence').get('id')
@@ -410,9 +423,11 @@ class XmemlParser(object):
         clip assosiated with it (i.e. music, sound effects). Defaults to true.
         """
         audio = self.root.find('sequence/media/audio')
+        seq_rate = audio.xpath('../../rate')[0]
+        sequenceframerate = getframerate(float(seq_rate.findtext('timebase')), seq_rate.findtext('ntsc') == 'TRUE')
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
-                ci = ClipItem(clip)
+                ci = ClipItem(clip, sequenceframerate)
                 if ci.isnestedsequence:
                     #print clip.find('sequence').get('name')
                     for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
