@@ -195,11 +195,11 @@ class ClipItem(Item):
             self.end = self.getfollowingtransition().centerframe
         try:
             self.file = File.filelist[tree.find('file').get('id')]  
-        except AttributeError:
+        except (AttributeError, KeyError):
             #print self.name
-            self.file = None # there might be a nested <sequence> instead of a file
+            self.file = None # there might be a nested <sequence> instead of a file. Or the clip/file is disabled(Another Premiere CC thing?)
         self.mediatype = tree.findtext('sourcetrack/mediatype')
-        self.trackindex = int(tree.findtext('sourcetrack/trackindex'))
+        self.trackindex = int(tree.findtext('sourcetrack/trackindex') or -1) # might not have trackindex (Is this a Premiere CC thing?)
         self.linkedclips = [Link(el) for el in tree.iter('link')]
         self.isnestedsequence = tree.find('sequence/media') is not None
 
@@ -225,10 +225,10 @@ class ClipItem(Item):
         if isinstance(threshold, Volume) and threshold.gain is not None:
             threshold = threshold.gain
         levels = self.getlevels()
-        keyframelist = list(levels.parameters)
+        keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
-            if levels.value > threshold:
+            if levels is not None and levels.value > threshold:
                 return Ranges(Range( (self.start, self.end) ) )
             else:
                 return Ranges()
@@ -317,7 +317,7 @@ class File(BaseObject):
         super(File, self).__init__(tree)
         self.id = tree.get('id')
         self.filelist[self.id] = self
-        self.duration = float(tree.findtext('duration'))
+        self.duration = float(tree.findtext('duration') or -1) # file might be a still image / graphics
         self.pathurl = tree.findtext('pathurl')
         if tree.find('media/video') is not None:
             self.mediatype = 'video'
