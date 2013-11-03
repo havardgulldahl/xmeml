@@ -93,10 +93,11 @@ class Range(object):
                 self.start <= other.start <= self.end
 
 class Ranges(object):
-    def __init__(self, range=None):
+    def __init__(self, range=None, framerate=None):
         self.r = []
         if range is not None:
             self.extend(range)
+        self.framerate = float(framerate)
 
     def __repr__(self):
         return 'Ranges: '+repr(self.r)
@@ -125,6 +126,13 @@ class Ranges(object):
                 return True
         self.r.append(otherrange)
         return True
+
+    def seconds(self):
+        try:
+            return float(len(self)) / self.framerate
+        except Exception:
+            raise
+            return None
 
 class BaseObject(object):
     """Base class for *Item, File"""
@@ -234,9 +242,9 @@ class ClipItem(Item):
         if not len(keyframelist):
             # no list of params, use <value>
             if levels is not None and levels.value > threshold:
-                return Ranges(Range( (self.start, self.end) ) )
+                return Ranges(Range( (self.start, self.end) ), framerate=self.getframerate()[0] )
             else:
-                return Ranges()
+                return Ranges(framerate=self.getframerate()[0])
 
         # add our subclip inpoint to the keyframelist if it's not in it already.
         #
@@ -249,6 +257,7 @@ class ClipItem(Item):
                     if self.inpoint < keyframelist[i+1][0]:
                         # add inpoint keyframe with volume of next keyframe
                         #print ' add inpoint keyframe with volume of next keyframe'
+                        #print 'keyframelist.insert(%s, (%s, %s))' %( i+1, self.inpoint, keyframelist[i+1][1])
                         keyframelist.insert(i+1, (self.inpoint, keyframelist[i+1][1]))
                 except IndexError:
                     # all keyframes in keyframelist are _before_ inpoint
@@ -257,6 +266,7 @@ class ClipItem(Item):
                 i = i + 1
             del i
 
+        #print "keyfrmelist. ", keyframelist 
         # add our sublicp outpoint to the keyframelist, too
         if self.outpoint > keyframelist[-1][0]:
             # last existing keyframe is earlier than outpoint, add last keyframe volume
@@ -281,7 +291,7 @@ class ClipItem(Item):
         # at or above our current gain level ('threshold' method argument)
         #
         audible = False
-        ranges = Ranges()
+        ranges = Ranges(framerate=self.getframerate()[0])
         for keyframe, volume in keyframelist:
             # discard everything outside .inpoint and .outpoint
             if keyframe < self.inpoint:
@@ -307,10 +317,9 @@ class ClipItem(Item):
             ranges.extend(Range( (prevframe, thisframe) ) )
         return ranges
 
-
     def getframerate(self): 
         # reimplemented from Item to take self.sequenceframerate into account on audio clips
-        if self.file.type == 'audio':
+        if self.file.mediatype == 'audio':
             return self.sequenceframerate
         else:
             return super(ClipItem, self).getframerate()
@@ -330,7 +339,7 @@ class File(BaseObject):
         super(File, self).__init__(tree)
         self.id = tree.get('id')
         self.filelist[self.id] = self
-        self.duration = float(tree.findtext('duration') or -1) # file might be a still image / graphics
+        self.duration = float(tree.findtext('duration') or -1) # file might be a still image / graphics, with no duration
         self.pathurl = tree.findtext('pathurl')
         if tree.find('media/video') is not None:
             self.mediatype = 'video'
@@ -461,5 +470,5 @@ if __name__ == '__main__':
     xmeml = XmemlParser(sys.argv[1])
     #pp( [cl.name for cl in xmeml.iteraudioclips() if cl.name.startswith('SCD0')])
     clips, files = xmeml.audibleranges(0.0300)
-    pp([(clip,r) for (clip,r) in clips.iteritems()])# if clip.startswith('SCD048720')])
+    pp([(clip,r,r.seconds()) for (clip,r) in clips.iteritems() if clip.startswith('NONRT048090CD0004 Jailhouse Rock')])
 
