@@ -442,6 +442,8 @@ class XmemlParser(object):
                     for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
                         for nestedclip in nestedtrack.iterchildren(tag='clipitem'):
                             nestedci = ClipItem(nestedclip)
+                            #from pprint import pprint
+                            #print nestedci.name, nestedci.id, pprint(vars(nestedci))
                             if not onlypureaudio:
                                 yield nestedci
                             elif nestedci.file.mediatype == 'audio':
@@ -465,10 +467,11 @@ class XmemlParser(object):
             
 
 if __name__ == '__main__':
-    import sys
+    import sys, os.path
     from pprint import pprint as pp
     xmeml = XmemlParser(sys.argv[1])
-    #pp( [cl.name for cl in xmeml.iteraudioclips() if cl.name.startswith('SCD0')])
-    clips, files = xmeml.audibleranges(0.0300)
-    pp([(clip,r,r.seconds()) for (clip,r) in clips.iteritems() if clip.startswith('NONRT048090CD0004 Jailhouse Rock')])
+    print('Found these audio clips in %s' % os.path.basename(sys.argv[1]))
+    for cl in xmeml.iteraudioclips(onlypureaudio=True):
+        print('%s: %s' % (cl.name, cl.audibleframes()))
+        
 
