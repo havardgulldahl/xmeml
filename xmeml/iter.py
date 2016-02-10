@@ -1,22 +1,23 @@
 #-*- encoding: utf-8 -*-
 #
-# This is an xmeml parser that tries to be super fast, 
-# using the lxml module for all xml stuff and python's 
+# This is an xmeml parser that tries to be super fast,
+# using the lxml module for all xml stuff and python's
 # efficient iterative parsing whenever possible.
 #
 # This leads to a dramatic decrease of both mem and cpu
 # usage compared to the minidom api of the standard xmeml
 # code.
 #
-# This module is not a full replacement though, 
+# This module is not a full replacement though,
 # and has a totally different api (it never made sense
 # to keep it, since everything is done differently
 # from the original parser.)
 #
-# (C) 2011-2013 havard.gulldahl@nrk.no
+# (C) 2011-2016 havard.gulldahl@nrk.no
 # License: BSD
 
 import lxml.etree as etree
+import logging
 
 AUDIOTHRESHOLD=0.0001
 
@@ -30,6 +31,7 @@ def getframerate(timebase, ntsc):
     """
     #print "getframerate: ", repr(timebase), repr(ntsc)
     if timebase is None:
+        logging.debug('getframerate: timebase is None, returning None')
         return (None, None)
     elif timebase == 24:
         if ntsc: return (23.976, '24P')
@@ -44,6 +46,8 @@ def getframerate(timebase, ntsc):
     elif timebase == 60:
         if ntsc: return (59.94, 'HD (59.94Hz)')
         else: return (60, 'HD (60Hz)')
+    else:
+        logging.warning('getframerate: got an unhandled timebase: %r (ntsc=%r)', timebase, ntsc)
 
 class XmemlFileError(Exception):
     pass
@@ -61,7 +65,7 @@ class Range(object):
 
     def __string__(self):
         return u'<Range: %.5(start)f–%.5(end)f>' % vars(self)
-    
+
     def __add__(self, other):
         self.extend( (other.start, other.end) )
         return self
@@ -103,7 +107,7 @@ class Ranges(object):
         return 'Ranges: '+repr(self.r)
 
     def __str__(self):
-        return u'<Ranges: %i ranges, totalling %.2d frames>' % (len(self.r), 
+        return u'<Ranges: %i ranges, totalling %.2d frames>' % (len(self.r),
                                                                 len(self))
 
     def __add__(self, other):
@@ -168,7 +172,7 @@ class TransitionItem(Item):
 
     def __init__(self, tree):
         super(TransitionItem, self).__init__(tree)
-        # A string specifying an alignment for a transition. 
+        # A string specifying an alignment for a transition.
         # Valid entries are start, center, end, end-black, or start-black.
         self.alignment = tree.findtext('alignment')
         self.effect = Effect(tree.find('effect'))
@@ -179,10 +183,10 @@ class ClipItem(Item):
     """
     Description: Encodes a clip in a track.
     Parent:      track
-    Subelements: +*name, +duration, +rate, +*start, +*end, link, syncoffset, 
-                 *enabled, *in, *out, *masterclipid, *subclipmasterid, 
-                 ismasterclip, *logginginfo, file, *timecode, *marker, 
-                 *anamorphic, *alphatype, *alphareverse, *labels, *comments, 
+    Subelements: +*name, +duration, +rate, +*start, +*end, link, syncoffset,
+                 *enabled, *in, *out, *masterclipid, *subclipmasterid,
+                 ismasterclip, *logginginfo, file, *timecode, *marker,
+                 *anamorphic, *alphatype, *alphareverse, *labels, *comments,
                  sourcetrack, *compositemode, subclipinfo, *filter, stillframe,
                  *stillframeoffset, *sequence, multiclip,mediadelay,
                  subframeoffset, *mixedratesoffset,filmdata, pixelaspectratio,
@@ -207,7 +211,7 @@ class ClipItem(Item):
         if self.end == -1.0: # end is within a transition
             self.end = self.getfollowingtransition().centerframe
         try:
-            self.file = File.filelist[tree.find('file').get('id')]  
+            self.file = File.filelist[tree.find('file').get('id')]
         except (AttributeError, KeyError):
             #print self.name
             self.file = None # there might be a nested <sequence> instead of a file. Or the clip/file is disabled(Another Premiere CC thing?)
@@ -237,14 +241,23 @@ class ClipItem(Item):
         if not self.mediatype == 'audio': return None # is video
         if isinstance(threshold, Volume) and threshold.gain is not None:
             threshold = threshold.gain
+        frate = self.getframerate()
+        if frate is None:
+            logging.warning('audibleframes: framerate is None for clip id "%r"', self.id)
+            _r = None
+        else:
+            _r = frate[0]
         levels = self.getlevels()
         keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
+            logging.info('audibleframes: no keyframes found, using one value: %r', levels.value)
             if levels is not None and levels.value > threshold:
-                return Ranges(Range( (self.start, self.end) ), framerate=self.getframerate()[0] )
+                return Ranges(Range( (self.start, self.end) ), framerate=_r)
             else:
-                return Ranges(framerate=self.getframerate()[0])
+                # levels is None
+                # TODO: determine if this means that the whole clip is audible
+                return Ranges(framerate=_r)
 
         # add our subclip inpoint to the keyframelist if it's not in it already.
         #
@@ -253,7 +266,7 @@ class ClipItem(Item):
         else:
             i = 0
             while self.inpoint > keyframelist[i][0]:
-                try: 
+                try:
                     if self.inpoint < keyframelist[i+1][0]:
                         # add inpoint keyframe with volume of next keyframe
                         #print ' add inpoint keyframe with volume of next keyframe'
@@ -266,7 +279,7 @@ class ClipItem(Item):
                 i = i + 1
             del i
 
-        #print "keyfrmelist. ", keyframelist 
+        #print "keyfrmelist. ", keyframelist
         # add our sublicp outpoint to the keyframelist, too
         if self.outpoint > keyframelist[-1][0]:
             # last existing keyframe is earlier than outpoint, add last keyframe volume
@@ -317,7 +330,7 @@ class ClipItem(Item):
             ranges.extend(Range( (prevframe, thisframe) ) )
         return ranges
 
-    def getframerate(self): 
+    def getframerate(self):
         # reimplemented from Item to take self.sequenceframerate into account on audio clips
         if self.file.mediatype == 'audio':
             return self.sequenceframerate
@@ -348,13 +361,13 @@ class File(BaseObject):
 
 class Effect(object):
     """Eeffect
-    Description: Encodes an effect or processing operation. 
+    Description: Encodes an effect or processing operation.
     Parents:     transitionitem, filter, generatoritem
     Subelements: +*name, +*effectid, +*effecttype, +*mediatype, *effectcategory,
                 parameter, keyframe, appspecificdata, wipecode, wipeaccuracy, rate,
                 startratio, endratio, reverse, duration , privatestate, multiclip,
                 effectclass
-  
+
      """
     def __init__(self, tree):
         self.name = tree.findtext('name')
@@ -383,11 +396,11 @@ class Volume(object):
         gain = v2.gain
 
 Quoting the dev library:
-"The volume level for the audio track of a clip is encoded by the Audio Levels effect. 
-The parameter Level expresses linear gain rather than decibels. 
-To convert gain to decibels, use the formula 
-                    decibels = 20 * log10(Level). 
-Conversely, to convert decibels to gain, use 
+"The volume level for the audio track of a clip is encoded by the Audio Levels effect.
+The parameter Level expresses linear gain rather than decibels.
+To convert gain to decibels, use the formula
+                    decibels = 20 * log10(Level).
+Conversely, to convert decibels to gain, use
                     Level = 10 ^ (decibels / 20)."
 
 """
@@ -399,7 +412,7 @@ Conversely, to convert decibels to gain, use
             self.decibel = 20 * log10(self.gain)
         if decibel:
             self.decibel = float(decibel)
-            self.gain = 10 ** (self.decibel / 20)  
+            self.gain = 10 ** (self.decibel / 20)
 
 class XmemlParser(object):
 
@@ -426,14 +439,15 @@ class XmemlParser(object):
         File.filelist = {f.get('id'):File(f) for f in self.root.iter('file') if f.findtext('name') is not None}
 
     def iteraudioclips(self, onlypureaudio=True):
-        """Iterator to get all audio clips. 
-        
-        onlypureaudio parameter controls whether to limit to clips that have no video 
+        """Iterator to get all audio clips.
+
+        onlypureaudio parameter controls whether to limit to clips that have no video
         clip assosiated with it (i.e. music, sound effects). Defaults to true.
         """
         audio = self.root.find('sequence/media/audio')
         seq_rate = audio.xpath('../../rate')[0]
         sequenceframerate = getframerate(float(seq_rate.findtext('timebase')), seq_rate.findtext('ntsc') == 'TRUE')
+        logging.info('iteraudioclips: got sequenceframerate: %r', sequenceframerate)
         for track in audio.iterchildren(tag='track'):
             for clip in track.iterchildren(tag='clipitem'):
                 ci = ClipItem(clip, sequenceframerate)
@@ -441,7 +455,7 @@ class XmemlParser(object):
                     #print clip.find('sequence').get('name')
                     for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
                         for nestedclip in nestedtrack.iterchildren(tag='clipitem'):
-                            nestedci = ClipItem(nestedclip)
+                            nestedci = ClipItem(nestedclip, sequenceframerate)
                             #from pprint import pprint
                             #print nestedci.name, nestedci.id, pprint(vars(nestedci))
                             if not onlypureaudio:
@@ -464,14 +478,15 @@ class XmemlParser(object):
                 clips[clip.name] = clip.audibleframes(threshold)
             files.update( {clip.name: clip.file} )
         return clips, files
-            
+
 
 if __name__ == '__main__':
     import sys, os.path
+    logging.basicConfig(level=logging.DEBUG)
     from pprint import pprint as pp
     xmeml = XmemlParser(sys.argv[1])
     print('Found these audio clips in %s' % os.path.basename(sys.argv[1]))
     for cl in xmeml.iteraudioclips(onlypureaudio=True):
-        print('%s: %s' % (cl.name, cl.audibleframes()))
-        
+        print('%s: %s frames' % (cl.name, len(cl.audibleframes())))
+
 
