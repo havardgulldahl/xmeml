@@ -482,10 +482,15 @@ class XmemlParser(object):
 
 if __name__ == '__main__':
     import sys, os.path
-    logging.basicConfig(level=logging.DEBUG)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument(dest='xmemlfile')#, type=argparse.FileType('r'))
+    parser.add_argument('-l', '--loglevel', choices=('debug', 'info', 'warning', 'error'), default='warning')
+    args = parser.parse_args()
+    logging.basicConfig(level=getattr(logging, args.loglevel.upper()))
     from pprint import pprint as pp
-    xmeml = XmemlParser(sys.argv[1])
-    print('Found these audio clips in %s' % os.path.basename(sys.argv[1]))
+    xmeml = XmemlParser(args.xmemlfile)
+    print('Found these audio clips in %s' % os.path.basename(args.xmemlfile))
     for cl in xmeml.iteraudioclips(onlypureaudio=True):
         print('%s: %s frames' % (cl.name, len(cl.audibleframes())))
 
