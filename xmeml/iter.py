@@ -251,8 +251,9 @@ class ClipItem(Item):
         keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
-            logging.info('audibleframes: no keyframes found, using one value: %r', levels.value)
+            logging.info('audibleframes: no keyframes found, using one value: %r', levels)
             if levels is not None and levels.value > threshold:
+                # the one level is above the threshold
                 return Ranges(Range( (self.start, self.end) ), framerate=_r)
             else:
                 # levels is None
@@ -378,10 +379,20 @@ class Effect(object):
             self.value = params.findtext('value', 0.0)
             self.max = float(tree.findtext('parameter/valuemax'))
             self.min = float(tree.findtext('parameter/valuemin'))
+        else:
+            self.value = None
+            self.max = None
+            self.min = None
 
     def getparameters(self, tree):
         for el in tree.iterchildren(tag='keyframe'):
             yield ( float(el.findtext('when')), float(el.findtext('value')) )
+
+    def __str__(self):
+        return '<Effect: %s. Value: %s. Max/min: %/%s>' % (self.name,
+                                                           self.value,
+                                                           self.max,
+                                                           self.min)
 
 class Volume(object):
     """Helper class to convert to and from gain and dB.
