@@ -267,8 +267,9 @@ class ClipItem(Item):
                 # levels is None
                 # TODO: determine if this means that the whole clip is audible
                 # TODO: use Gain effect here instead?
-                logging.info('audibleframes() clip "%s": no level data available. Gain: %s',
+                logging.info('audibleframes() clip "%s" (from "%s"): no level data available. Gain: %s',
                              self.id,
+                             self.name,
                              self.getgain()
                              )
                 return Ranges(framerate=_r)
