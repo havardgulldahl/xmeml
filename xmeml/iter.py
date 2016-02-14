@@ -225,9 +225,13 @@ class ClipItem(Item):
 
     def getlevels(self):
         for e in self.getfilters():
-            if e.name == 'Gain':
-                logging.debug('getlevels: got gain: %s', e)
             if e.effectid == 'audiolevels':
+                return e
+        return None
+
+    def getgain(self):
+        for e in self.getfilters():
+            if e.name == 'Gain':
                 return e
         return None
 
@@ -254,7 +258,8 @@ class ClipItem(Item):
         keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
-            logging.info('audibleframes: no keyframes found, using one value: %s', levels)
+            logging.debug('audibleframes: clip "%s": no keyframes found, using one value: %s',
+                          self.id, levels)
             if levels is not None and levels.value > threshold:
                 # the one level is above the threshold
                 return Ranges(Range( (self.start, self.end) ), framerate=_r)
@@ -262,7 +267,10 @@ class ClipItem(Item):
                 # levels is None
                 # TODO: determine if this means that the whole clip is audible
                 # TODO: use Gain effect here instead?
-
+                logging.info('audibleframes() clip "%s": no level data available. Gain: %s',
+                             self.id,
+                             self.getgain()
+                             )
                 return Ranges(framerate=_r)
 
         # add our subclip inpoint to the keyframelist if it's not in it already.
