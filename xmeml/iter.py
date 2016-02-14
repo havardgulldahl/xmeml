@@ -225,7 +225,10 @@ class ClipItem(Item):
 
     def getlevels(self):
         for e in self.getfilters():
-            if e.effectid == 'audiolevels': return e
+            if e.name == 'Gain':
+                logging.debug('getlevels: got gain: %s', e)
+            if e.effectid == 'audiolevels':
+                return e
         return None
 
     def getprevtransition(self):
@@ -251,13 +254,15 @@ class ClipItem(Item):
         keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
-            logging.info('audibleframes: no keyframes found, using one value: %r', levels)
+            logging.info('audibleframes: no keyframes found, using one value: %s', levels)
             if levels is not None and levels.value > threshold:
                 # the one level is above the threshold
                 return Ranges(Range( (self.start, self.end) ), framerate=_r)
             else:
                 # levels is None
                 # TODO: determine if this means that the whole clip is audible
+                # TODO: use Gain effect here instead?
+
                 return Ranges(framerate=_r)
 
         # add our subclip inpoint to the keyframelist if it's not in it already.
@@ -389,10 +394,7 @@ class Effect(object):
             yield ( float(el.findtext('when')), float(el.findtext('value')) )
 
     def __str__(self):
-        return '<Effect: %s. Value: %s. Max/min: %/%s>' % (self.name,
-                                                           self.value,
-                                                           self.max,
-                                                           self.min)
+        return '<Effect: %(name)s. Value: %(value)s. Max/min: %(max)s/%(min)s>' % (vars(self))
 
 class Volume(object):
     """Helper class to convert to and from gain and dB.
@@ -468,9 +470,15 @@ class XmemlParser(object):
                         for nestedclip in nestedtrack.iterchildren(tag='clipitem'):
                             nestedci = ClipItem(nestedclip, sequenceframerate)
                             #from pprint import pprint
-                            #print nestedci.name, nestedci.id, pprint(vars(nestedci))
+                            #pprint(vars(nestedci))
                             if not onlypureaudio:
                                 yield nestedci
+                            elif nestedci.file is None:
+                                # clip without a valid file reference
+                                # TODO: figure out the cause of this
+                                logging.warning('Nested clip without a file reference: %s (from %s)' % (nestedci.id,
+                                                                                                        nestedci.name))
+                                continue
                             elif nestedci.file.mediatype == 'audio':
                                 yield nestedci
                     continue
@@ -499,10 +507,11 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--loglevel', choices=('debug', 'info', 'warning', 'error'), default='warning')
     args = parser.parse_args()
     logging.basicConfig(level=getattr(logging, args.loglevel.upper()))
-    from pprint import pprint as pp
     xmeml = XmemlParser(args.xmemlfile)
     print('Found these audio clips in %s' % os.path.basename(args.xmemlfile))
-    for cl in xmeml.iteraudioclips(onlypureaudio=True):
-        print('%s: %s frames' % (cl.name, len(cl.audibleframes())))
+    clips, files = xmeml.audibleranges()
+    for clip, ranges in clips.iteritems():
+        print('%s: %s frames' % (clip, len(ranges)))
+
 
 
