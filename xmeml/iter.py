@@ -273,21 +273,35 @@ class ClipItem(Item):
         keyframelist = list(levels is not None and levels.parameters or [])
         if not len(keyframelist):
             # no list of params, use <value>
-            logging.debug('audibleframes: clip "%s": no keyframes found, using one value: %s',
-                          self.id, levels)
-            if levels is not None and levels.value > threshold:
-                # the one level is above the threshold
-                return Ranges(Range( (self.start, self.end) ), framerate=_r)
-            else:
-                # levels is None
-                # TODO: determine if this means that the whole clip is audible
-                # TODO: use Gain effect here instead?
-                logging.info('audibleframes() clip "%s" (from "%s"): no level data available. Gain: %s',
+            #logging.debug('audibleframes: clip "%s": no keyframes found, using one value: %s',
+            #              self.id, levels)
+            if levels is not None:
+                if levels.value > threshold:
+                    # the one level is above the threshold
+                    return Ranges(Range( (self.start, self.end) ), framerate=_r)
+                else:
+                    return Ranges(framerate=_r) # return empty Ranges
+
+            # levels is None, check gain
+            _db = self.getgain() # confusingly, premiere uses decibel in the Gain effect
+
+            if _db is not None:
+                vol = Volume(decibel=_db.value)
+                logging.info('audibleframes() clip "%s" (from "%s"): no levels, but gain: %s',
                              self.id,
                              self.name,
-                             self.getgain()
-                             )
-                return Ranges(framerate=_r)
+                             vol.gain
+                            )
+                if vol.gain > threshold:
+                    return Ranges(Range( (self.start, self.end) ), framerate=_r)
+                else:
+                    return Ranges(framerate=_r) # return empty Ranges
+
+            # by now, both the audio levels and gain have been None.
+            # TODO: determine if this means that the whole clip is audible
+
+
+            return Ranges(framerate=_r) # return empty Ranges as a fallback
 
         # add our subclip inpoint to the keyframelist if it's not in it already.
         #
@@ -454,12 +468,18 @@ Conversely, to convert decibels to gain, use
     def __init__(self, gain=None, decibel=None):
         from math import log10
         self.gain = self.decibel = None
+        logging.debug('Volu,e: get gain=%r, decibel=%r', gain, decibel)
         if gain:
             self.gain = float(gain)
             self.decibel = 20 * log10(self.gain)
         if decibel:
             self.decibel = float(decibel)
             self.gain = 10 ** (self.decibel / 20)
+
+    def __str__(self):
+        return '<Volume: %(decibel)s dB, gain: %(gain)s.>' % (vars(self))
+
+
 
 class XmemlParser(object):
 
