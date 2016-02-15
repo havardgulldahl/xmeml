@@ -219,18 +219,33 @@ class ClipItem(Item):
         self.trackindex = int(tree.findtext('sourcetrack/trackindex') or -1) # might not have trackindex (Is this a Premiere CC thing?)
         self.linkedclips = [Link(el) for el in tree.iter('link')]
         self.isnestedsequence = tree.find('sequence/media') is not None
+        self.filters = []
+        # Determine if clipitem is enabled. From the docs:
+        # Description   A Boolean value specifying whether or not the parent element is enabled.
+        # Parents       track, clipitem, clip, generatoritem, sequence, filter
+        # Notes         If you do not specify enabled, the default setting is TRUE.
+        if tree.find('enabled') is None:
+            self.enabled = True
+        else:
+            self.enabled = unicode(tree.findtext('enabled')).upper() != 'FALSE'
 
     def getfilters(self):
-        return [ Effect(el) for el in self.tree.iterdescendants(tag='effect') ]
+        if len(self.filters) == 0:
+            self.filters = [ Effect(el) for el in self.tree.iterdescendants(tag='effect') ]
+        return self.filters
 
     def getlevels(self):
         for e in self.getfilters():
+            if not e.enabled:
+                continue
             if e.effectid == 'audiolevels':
                 return e
         return None
 
     def getgain(self):
         for e in self.getfilters():
+            if not e.enabled:
+                continue
             if e.name == 'Gain':
                 return e
         return None
@@ -387,6 +402,16 @@ class Effect(object):
     def __init__(self, tree):
         self.name = tree.findtext('name')
         self.effectid = tree.findtext('effectid')
+        # Determine if an Effect is enabled. From the docs:
+        # Description   A Boolean value specifying whether or not the parent element is enabled.
+        # Parents       track, clipitem, clip, generatoritem, sequence, filter
+        # Notes         If you do not specify enabled, the default setting is TRUE.
+        _en = tree.getparent().findtext('enabled')
+        if _en is None:
+            self.enabled = True
+        else:
+            self.enabled = unicode(_en).upper() != 'FALSE'
+
         params = tree.find('parameter')
         if params is not None:
             self.parameters = self.getparameters(params)
@@ -457,6 +482,11 @@ class XmemlParser(object):
             self.name = self.root.find('sequence').get('id')
         except AttributeError:
             raise XmemlFileError('No sequence found. Nothing to do.')
+        if self.tree.find('enabled') is not None:
+            # from the spec:
+            # Notes If you do not specify enabled, the default setting is TRUE.
+            if unicode(self.tree.findtext('enabled')).upper() == 'FALSE':
+                raise XmemlFileError('Sequence is not enabled. Nothing to do.')
         # find all file references
         File.filelist = {f.get('id'):File(f) for f in self.root.iter('file') if f.findtext('name') is not None}
 
@@ -471,8 +501,18 @@ class XmemlParser(object):
         sequenceframerate = getframerate(float(seq_rate.findtext('timebase')), seq_rate.findtext('ntsc') == 'TRUE')
         logging.info('iteraudioclips: got sequenceframerate: %r', sequenceframerate)
         for track in audio.iterchildren(tag='track'):
+            if track.find('enabled') is not None:
+                # from the spec:
+                # Notes If you do not specify enabled, the default setting is TRUE.
+                if unicode(track.findtext('enabled')).upper() == 'FALSE':
+                    logging.info('Track is disabled, skipping')
+                    continue
+
             for clip in track.iterchildren(tag='clipitem'):
                 ci = ClipItem(clip, sequenceframerate)
+                if not ci.enabled:
+                    logging.info('Clip %s/%s is disabled, skipping', ci.id, ci.name)
+                    continue
                 if ci.isnestedsequence:
                     #print clip.find('sequence').get('name')
                     for nestedtrack in clip.find('sequence/media/audio').iterchildren(tag='track'):
