@@ -295,14 +295,17 @@ class ClipItem(Item):
                 if vol.gain > threshold:
                     return Ranges(Range( (self.start, self.end) ), framerate=_r)
                 else:
-                    return Ranges(framerate=_r) # return empty Ranges
+                    return Ranges(framerate=_r) # gain is lower than threshold, return empty Ranges
 
             # by now, both the audio levels and gain have been None.
             # TODO: determine if this means that the whole clip is audible
 
-
+            logging.info('TODO. No gain and no audio levels metadata for this clip. Should it be audible?')
             return Ranges(framerate=_r) # return empty Ranges as a fallback
 
+
+
+        # At this point, we have a keyframelist to go through
         # add our subclip inpoint to the keyframelist if it's not in it already.
         #
         if self.inpoint < keyframelist[0][0]:
