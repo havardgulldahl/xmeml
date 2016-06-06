@@ -300,7 +300,8 @@ class ClipItem(Item):
             # by now, both the audio levels and gain have been None.
             # TODO: determine if this means that the whole clip is audible
 
-            logging.info('TODO. No gain and no audio levels metadata for this clip. Should it be audible?')
+            logging.info('TODO. No gain and no audio levels metadata for this clip ("%s"). Should it be audible?',
+                         self.name)
             return Ranges(framerate=_r) # return empty Ranges as a fallback
 
 
