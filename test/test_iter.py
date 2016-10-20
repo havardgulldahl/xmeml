@@ -1,5 +1,5 @@
 # encoding: utf-8
-# tests of xmeml logic
+# tests of xmeml iter logic
 
 from __future__ import unicode_literals
 from distutils import dir_util
@@ -21,7 +21,8 @@ def datadir(tmpdir, request):
     tests can use them freely.
     '''
     filename = request.module.__file__
-    test_dir, _ = os.path.splitext(filename)
+    #test_dir, _ = os.path.splitext(filename)
+    test_dir = os.path.join(os.path.dirname(filename), 'xmemlfiles')
 
     if os.path.isdir(test_dir):
         dir_util.copy_tree(test_dir, bytes(tmpdir))
@@ -42,12 +43,11 @@ def _fsdecode(b):
 def test_xmemlsamples(datadir):
 
     def load(f):
-        print("test load {f}".format(f=_fsdecode(f.basename)))
+        print("test load {f!r}".format(f=_fsdecode(f.basename)))
         xmeml = xmemliter.XmemlParser(f.open())
         audioclips, audiofiles = xmeml.audibleranges()
         return xmeml
 
-    #print datadir.listdir()
     for xml in datadir.listdir(fil=lambda x: _fsdecode(x.basename).upper().endswith(".XML")):
         _xmlbasename = _fsdecode(xml.basename)
         if _xmlbasename == 'EMPTY_SEQUENCE.xml':

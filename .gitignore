@@ -1,4 +1,5 @@
 ._*
 *~
 *.pyc
-xmemlsamples/
+test/xmemlfiles/*.xml
+.cache
