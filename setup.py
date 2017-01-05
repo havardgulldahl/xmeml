@@ -26,13 +26,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="xmeml",
-    version="0.9",
-    author="Schuyler Duveen",
-    author_email="sky@columbia.edu",
-    url="http://github.com/ccnmtl/xmeml/",
-    description="XML parser for Final Cut Pro <xmeml> files.  Has clipping API",
-    long_description="Clip FCP xml files and recompose into a new video sequence.",
+    name="xmeml-iter",
+    version="0.10",
+    author="Havard Gulldahl",
+    author_email="havard.gulldahl@nrk.no",
+    url="http://github.com/havardgulldahl/xmeml/",
+    description="Iterative parser for Final Cut Pro <xmeml> files",
+    long_description="Parse and analyze FCP xml files. Supports files from Final Cut Pro 7x and Adobe Premiere. This is a fork of the original xmeml project that adds support for the iter protocol for fast parsing, as well as some audio analysis functions. ",
     scripts = [],
     license = "BSD",
     platforms = ["any"],
