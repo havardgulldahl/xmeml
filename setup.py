@@ -1,4 +1,5 @@
 # Copyright (c) 2010, Columbia Center For New Media Teaching And Learning (CCNMTL)
+# Copyright (c) 2012-2017, havard@gulldahl.no
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -26,23 +27,12 @@
 from setuptools import setup, find_packages
 
 setup(
-<<<<<<< HEAD
     name="xmeml-iter",
-    version="0.10",
-    author="Havard Gulldahl",
-    author_email="havard.gulldahl@nrk.no",
-    url="http://github.com/havardgulldahl/xmeml/",
-    description="Iterative parser for Final Cut Pro <xmeml> files",
-    long_description="Parse and analyze FCP xml files. Supports files from Final Cut Pro 7x and Adobe Premiere. This is a fork of the original xmeml project that adds support for the iter protocol for fast parsing, as well as some audio analysis functions. ",
-=======
-    name="xmeml_iter",
-    version="0.10",
     author="Havard Gulldahl",
     author_email="havard@gulldahl.no",
     url="http://github.com/havardgulldahl/xmeml/",
-    description="XML parser for Final Cut Pro <xmeml> files. Has clipping API and a fast parser based on LXML",
-    long_description="Clip FCP xml files and recompose into a new video sequence. Parse project files swiftly with an iter based parser. API to iterate audio clips that are audible, based on a configurable threshold.",
->>>>>>> origin/master
+    description="Iterative parser for Final Cut Pro <xmeml> files - based on lxml",
+    long_description="Parse and analyze FCP xml files. Supports files from Final Cut Pro 7x and Adobe Premiere. This is a fork of the original xmeml project that adds support for the iter protocol for fast parsing, as well as some audio analysis functions. ",
     scripts = [],
     license = "BSD",
     platforms = ["any"],
