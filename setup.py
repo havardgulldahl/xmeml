@@ -28,6 +28,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="xmeml-iter",
+    version="0.10",
     author="Havard Gulldahl",
     author_email="havard@gulldahl.no",
     url="http://github.com/havardgulldahl/xmeml/",
