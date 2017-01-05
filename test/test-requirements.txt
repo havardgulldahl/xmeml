@@ -1,0 +1,7 @@
+args
+lxml # get it from wheel on windows
+pytest 
+pytest-assume
+pytest-catchlog
+six
+wheel

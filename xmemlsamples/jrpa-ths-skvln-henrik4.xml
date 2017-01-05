@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<!-- FCP version 1.0.9.7 -->
+<xmeml version="3">
+  <project>
+    <name>jrpa-ths-skvln-henrik4</name>
+    <children>
+      <bin>
+        <name>Source Clips</name>
+        <children>
+          <clip id="MSPO40750416AH">
+            <name>MSPO40750416AH</name>
+            <duration>80311</duration>
+            <rate>
+              <ntsc>False</ntsc>
+              <timebase>25</timebase>
+            </rate>
+            <masterclipid>MSPO40750416AH</masterclipid>
+            <ismasterclip>TRUE</ismasterclip>
+            <logginginfo>
+              <description>Slalåm 2. omgang, menn (79:100 @ V-cup alpint)</description>
+              <lognote />
+            </logginginfo>
+            <comments>
+              <mastercomment1>2016;ARKIV_HK;CLIP;OPROBROWSER;oprog3app04;OPROKEYFRAMES;OPROMGRID;OPROPGMSPILLERWEB;WEEK09;_PRFDATA_PGM_OK_OPRO;</mastercomment1>
+              <mastercomment2 />
+              <mastercomment3 />
+              <mastercomment4 />
+            </comments>
+            <media>
+              <video>
+                <track>
+                  <clipitem>
+                    <name>MSPO40750416AH</name>
+                    <anamorphic>TRUE</anamorphic>
+                  </clipitem>
+                </track>
+              </video>
+            </media>
+            <file id="MSPO40750416AH1">
+              <name>MSPO40750416AH</name>
+              <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+              <timecode>
+                <string>00:00:00:00</string>
+                <frame>0</frame>
+                <displayformat>NDF</displayformat>
+                <source>source</source>
+              </timecode>
+            </file>
+          </clip>
+          <clip id="NNFA03030616AH">
+            <name>NNFA03030616AH</name>
+            <duration>67010</duration>
+            <rate>
+              <ntsc>False</ntsc>
+              <timebase>25</timebase>
+            </rate>
+            <masterclipid>NNFA03030616AH</masterclipid>
+            <ismasterclip>TRUE</ismasterclip>
+            <logginginfo>
+              <description>Søndagsrevyen (9:50 @ Søndagsrevyen)</description>
+              <lognote />
+            </logginginfo>
+            <comments>
+              <mastercomment1>2015;ARKIV_HK;CLIP;OPROBROWSER;oprog3app04;OPROKEYFRAMES;OPROMGRID;OPROPGMSPILLERWEB;WEEK47;_TIL_BEHANDLING_OPRO;_VO1_LAGRES_NARK_OPRO;_MERKET_OPRO;_PRFDATA_PGM_OK_OPRO;</mastercomment1>
+              <mastercomment2 />
+              <mastercomment3 />
+              <mastercomment4 />
+            </comments>
+            <media>
+              <video>
+                <track>
+                  <clipitem>
+                    <name>NNFA03030616AH</name>
+                    <anamorphic>TRUE</anamorphic>
+                  </clipitem>
+                </track>
+              </video>
+            </media>
+            <file id="NNFA03030616AH1">
+              <name>NNFA03030616AH</name>
+              <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+              <timecode>
+                <string>00:00:00:00</string>
+                <frame>0</frame>
+                <displayformat>NDF</displayformat>
+                <source>source</source>
+              </timecode>
+            </file>
+            <marker>
+              <name>Rettigheter (0)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>0</in>
+              <out>1516</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (0)</name>
+              <comment>Overskrift: Åpning Søndagsrevyen; Land: Norge;; Tags: Not specified;I-versjon: 00:00|00:00|LOGO; </comment>
+              <in>0</in>
+              <out>1516</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (1)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>2552</in>
+              <out>5845</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (1)</name>
+              <comment>Overskrift: Frivillige for migranter får trusler fra sinte nordmenn; Sted: Majorstuen; Lesbos; Libanon; Stavanger; Finnmark;; Kommune: Oslo; Lésvos; Kristiansand; Stavanger; Bamble;; Fylke: Oslo; Vest-Agder; Rogaland; Telemark;; Land: Norge;; Tags: trusler; hets; sjikane; sosiale media; migranter; flyktninger asylsøkere;; Rubrikk: Ingv:
+Syriakrigen har ført til ein stor flyktningestraum til Europa, og frivillige som vil hjelpe til i Hellas eller her i landet , får ofte meldingar med hets. 
+Jon: 
+Nesten halvparten av de frivillige som har deltatt i en spørreundersøkelse sier de ha mottat sjikanerende kommentarer fra nordmenn med innvandringskritisk syn: 
+bak skjerm1; I-versjon: FRIVILLIGE-050316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+              <in>2552</in>
+              <out>5845</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (2)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>5846</in>
+              <out>8708</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (2)</name>
+              <comment>Overskrift: Gjest: Ingrid Aspelund; Land: Norge;; Tags: Not specified;I-versjon: M:; Notat: BTS
+BTS; </comment>
+              <in>5846</in>
+              <out>8708</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (3)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>8709</in>
+              <out>11708</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (3)</name>
+              <comment>Overskrift: Siv Jensen gikk i strupen på Gahr Støre under tale til landsmøte; Sted: Oslo;; Kommune: Oslo;; Fylke: Oslo;; Land: Norge;; Tags: frp sentralstyremøte; siv jensen taler;; Rubrikk: JON:
+Finansminister Siv Jensen gikk i strupen på Arbeiderpartiet og Jonas Gahr Støre da hun i dag talte til Fremskrittspartiets landsstyre. Jensen anklager 
+Støre for å mene en ting til frokost og noe annet til middag:; Beskrivelse: Siv Jensen taler på frp sitt sentralstyremøte, Jonas Gahr Støre intervju tv resepsjonen; I-versjon: KRITIKK-AP-060316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. stoffet heter "frp" og "støre"
+BLOKK:
+Godt humør da Siv Jensen skulle tale til sine egne. 
+Hun hyllet arbeidet til Frp i regjering, men presiserte: det var ingen tid til å hvile på laurbærene:
+SYNK 11:00:59 Vi har dårlig tid, vi har mye vi skal gjennomføre og vi er på ingen måte i mål enda 11:01:04
+BLOKK: Også bekreftet Siv Jensen igjen hvem som er hovedfienden politisk:
+SYNK FRA TALEN:
+11:21:11 Jonas Gahr Støre vil ha det til at hvis han bare fikk styre ja så hadde arbeidsledigheten vært lavere. Og for å være helt ærlig mener jeg slike uttalelser er et hån arbeidsledige som står uten jobb. Det er direkte feil å påstå at ledigheten ville vært lavere om han hadde fått bestemme 11:21:34
+SYNK STØRE:
+'27 Vi har en annen tilnæring.i dag 50
+BLOKK:
+Jensen gav seg ikke
+Støre har uklare svar på hva som kan gjøres med utfordringene Norge står overfor mente finansministeren
+SYNK FRA TALEN MÅ KUTTES 11:22:00 Jeg kunne kanskje tatt han på alvor hvis han hadde hatt noen konkrete svar på hvilke alternativ han hadde til regjeringens politikk, men jeg hører jo stadig nye ting jeg fra både Jonas Gahr og Støre, det har vært vingling det har vært uklare svar. Og Jan Tore Sanner sa det egentlig veldig godt i forbindelsen med årstalen til sentrabanksjef Øystein Olsen:
+Torsdag morgen sa Støre til VG at han ville bruke mer penger, torsdag kveld etter at han hadde hørt sentrabanksjefens tale så sa han at regjeringn brukte for mye penger.
+Og det er etter min oppfatning ny rekord i å skifte mening,. han mener en ting til frokost og noe helt annet til middag. Det er det siste vi trenger i dagens situasjon. 
+SYNK STØRE:
+BLOKK SIST:
+Nå bærer det neste rett videre til budsjettkonferense for regjeringspartiene. Det starter i morgen; </comment>
+              <in>8709</in>
+              <out>11708</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (4)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>11709</in>
+              <out>12190</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (4)</name>
+              <comment>Overskrift: Fremstilles for varetekstsfengsling; Sted: oslo;; Kommune: oslo;; Fylke: Oslo;; Land: Norge;; Tags: leiegård der drap ble begått + dør;; Rubrikk: JON:
+De to mennene som er siktet for drapet på en mann i 50-årene på Tøyen i Oslo, fremstilles for varetektsfengsling i morgen. De to siktede er avhørt av politiet, men har ikke tatt stilling til spørsmålet om straffskyld. Den drepte er nå identifisert, og var bekjent av de to som er siktet.; Beskrivelse: dør inn til drapsåsted, leiegård; I-versjon: DRAP-FENGSLING-060316S-DR19; </comment>
+              <in>11709</in>
+              <out>12190</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (5)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: NBC/AP/USELXP/Restricted pool; </comment>
+              <in>12191</in>
+              <out>15655</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (5)</name>
+              <comment>Overskrift: Framgang for Cruz og Senders; Sted: Wichita; Boise; West Palm Beach; Detroit;; Kommune: Sedgwick County; Ada County; Palm Beach County; Wayne County;; Land: Norge;; Tags: donald trump; hillary clinton; amerikansk valgkamp; nominasjonsvalg; nominasjonsmøte; ted cruz; bernie sanders;; Rubrikk: Så til nominasjonsvalet i USA der Ted Cruz virkar å vera på offensiven-han og Donald Trump vann to statar kvar i natt. 
+Trump vann i Kentucky og Louisiana- Ted Cruz vann i Kansas og Maine.   
+På demokratisk side vann Hillary Clinton i Louisiana, medan rivalen Bernie Sanders gjekk sigrande ut i Kansas og Nebraska.
+bak skjerm2; I-versjon: CRUZ-VINNER-060316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. -----
+Sakte men sikkert blir resultatet klart. Det går mot siger for Ted Cruz her i Kansas.
+-----
+SYNK Ted Cruz
+-----
+Han har jobba intenst for å samle støtte. Då sigeren var eit faktum i natt, nytta han høvet til å komme med eit spark mot rivalen Donald Trump.
+-----
+SYNK Ted Cruz
+-----
+Det er Cruz og Trump det handlar om. Dei to andre republikanske kandidatane ligg langt bak. Donald Trump kom i natt med ei klar oppfordring til ein av dei.
+-----
+SYNK Donald Trump
+-----
+Det er ho som leier nominasjonskampen i det demokratiske partiet. Men i natt måtte ho ta til takke med siger i berre ein stat - Bernie Sanders tok to.
+-----
+SYNK Bernie Sanders
+-----
+Han møter angrep frå alle kantar. Kampen spissar seg til. I løpet av dei neste par vekene er det val i fleire folkerike statar. 
+-----; </comment>
+              <in>12191</in>
+              <out>15655</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (6)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>15656</in>
+              <out>17108</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (6)</name>
+              <comment>Overskrift: Direkte: Washington, D.C.; Land: Norge;; Tags: Not specified;I-versjon: M:; Notat: BTS
+BTS
+BTS storliten
+BTS storliten
+BTS
+BTS; </comment>
+              <in>15656</in>
+              <out>17108</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (7)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>17109</in>
+              <out>19813</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (7)</name>
+              <comment>Overskrift: Nancy Reagan er død; Land: Norge;; Tags: Not specified;Rubrikk: Make amaerica great again er slagordet til Trump- det samme som president Ronald Reagan hadde på 1980 talet- og i kveld kom meldinga at kona til hans Nancy Reagan er død, 94 år gammal.; I-versjon: Story; Notat: Make amaerica great again er slagordet til Trump- det samme som president Ronald Reagan hadde på 1980 talet- og i kveld kom meldinga at kona til hans Nancy Reagan er død, 94 år gammal.; </comment>
+              <in>17109</in>
+              <out>19813</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (8)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>19814</in>
+              <out>21004</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (8)</name>
+              <comment>Overskrift: Direkte: Washington, D.C.; Land: Norge;; Tags: Not specified;I-versjon: M:; Notat: BTS
+BTS
+BTS; </comment>
+              <in>19814</in>
+              <out>21004</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (9)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: reuters; </comment>
+              <in>21005</in>
+              <out>21631</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (9)</name>
+              <comment>Overskrift: Bilbombe i Irak; Sted: Ma?attat al ?illah;; Kommune: Babil;; Land: Norge;; Tags: bombeangrep; selvmordsangrep; is - den islamske stat;; Rubrikk: I Irak ble minst 60 mennesker drept og over 70 såret da en selvmordsbomber utløste en kraftig bilbombe sør for Bagdad i dag.
+Nærmere 40 av de drepte skal være sivile som sto og ventet ved 
+veisperringen, mens de øvrige var regjeringssoldater, opplyser 
+irakiske tjenestemenn. Den ytterliggående islamistgruppen IS har tatt på seg skylden for angrepet.; I-versjon: BOMBE-DØDE-060316S-DR19; </comment>
+              <in>21005</in>
+              <out>21631</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (10)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: Tipser; Rettigh. notat: Kjøpt tipervideo for 500 NOK. Fri gjenbruk Nett og TV.; </comment>
+              <in>21632</in>
+              <out>24419</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (10)</name>
+              <comment>Overskrift: Avbrøt konsert; Sted: Bergen;; Kommune: Bergen;; Fylke: Hordaland;; Land: Norge;; Tags: kape diem; festival; konsert; konsertarena; brannslukning;; Rubrikk: JON:
+I Bergen kan en 28 år gammel mann vente seg et erstatningskrav etter å ha tømt et brannslokningsapparat under en Karpe Diem-konsert i går kveld. 4.500 mennesker ble evakuert og fem mennesker ble sendt til legevakt med pusteproblemer:
+bak skjerm1; Beskrivelse: Fra teltet på Koengen. Pulver fra brannslokningsapparat på scenen. Tipsvideo fra konserten. Total av festivalområdet.; I-versjon: KONSERT-AVBRUTT-060316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. Dagen derpå i Bergen. I teltet på Koengen var restene av det tømte pulverapparatet fortsatt synlige. På scenen i går kveld sto bandet Karpe Diem. Drøyt halvveis ut i konserten skjedde dette. En mann kommer ut på scenen og tømmer et brannslukningsapparat utover publikum.
+Men iølge flere konsertgjester NRK har vært i kontakt med skal det ha vært tilløp til panikk i salen. Flere fikk pusteproblemer da pulveret spredte seg i lokalet. Fem personer ble sendt til legevakt for sjekk, men ingen kom alvorlig til skade. Det anslås at utstyr verdt flere hundre tusen ble ødelagt. 
+Festivalen fortsetter som planlagt, men Karpe Diem må avlyse en konsert i kveld fordi utstyret er ødelagt. Gjerningsmannen er 28 år og har INGEN tilknytning til Karpe Diem. Han hadde tilgang til området bak scenen og kan trolig vente seg et omfattende erstatningskrav.; </comment>
+              <in>21632</in>
+              <out>24419</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (11)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>24708</in>
+              <out>28259</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (11)</name>
+              <comment>Overskrift: Statkraft ønsker å produsere biodiesel; Land: Norge;; Tags: norsk trevirke; biofuel; norsk skog;; Rubrikk: JON:
+Norske trær kan bli redningen for å bli kvitt biodrivstoff fra palmeolje. Det mener Statkraft og skogeiere.
+INGV:
+Men ein professor åtvarer mot å hugge ned meir skog og meiner løysinga er farlegare for klimaet:
+bak skjerm1; Beskrivelse: trevirke, skog, bensinpumper; I-versjon: NORSK-SKOG-060316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. 2134: Vi ønsker da i fremtiden å bruke dette norske trevirket til å produsere biofuel. 
+På den gamle nedlagte papirfabrikken på Tofte i Buskerud planlegger Statkraft å lage biodiesel av norsk skog. 
+1738: Trenger høykvalitetstømmer som er fersk fra skogen. 
+Dette er det bærekraftige alternativet til palmeolje, mener Statkraft - som tar signalene fra politikerne på alvor. I sin iver etter å nå klimamålene har Stortinget bestemt å bytte ut 7 % av fossilt drivstoff med biodrivstoff. Transportetatene peker på norsk skog som en stor del av løsningen. 
+5:31: Og for oss så er det helt naturlig å se på andre muligheter innenfor fornybar energisektoren, og derfor så satser vi.
+Statkraft kaller det fornybar energi. Professoren med den ferske doktorgraden mener at fornybart ikke er ensbetydende med klimavennlig, og advarer sterkt mot å hogge ned mer norsk skog enn i dag:
+Det tar altfor lang tid fra du har hugget det til treet er vokst opp igjen og kan fange tilbake den samme CO2 mengden, og i mellomtiden har det da tilført CO2 til klima og påvirket klima. 
+Klimakrisen er akutt. Om vi venter noen millioner år på at dyr og planterester skal bli til olje i bakken eller noen hundre år på at skogen skal gro til igjen - det tar for lang tid! 
+Skogeierne mener de kan få det til på en bærekraftig måte, selv om de hogger 30-50 % mer skog. 
+1955: Vi kan levere en tredjedel, halvparten kanskje noe mer enn det som beskrives av transportetatene her, det er mulig. 
+De siste dagers nyheter om palmeolje og raps i biodrivstoffet har fått norske myndigheter til å legge ekstra stort trykk på ordet bærekraftig når de skal rettferdiggjøre sin politikk. 
+0146: Jeg tror ikke dette er ordentlig gjennomtenkt og ikke basert på nyere forskning om hva som er klimaeffektene av denne typen tiltak. 
+1420: Dette er gjennomtenkt, vi kommer i dette prosjektet til å ta ut gammel eller moden skog som ikke lenger tar opp CO2, så den jobben den er gjort.; </comment>
+              <in>24708</in>
+              <out>28259</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (12)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>28260</in>
+              <out>28460</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (12)</name>
+              <comment>Overskrift: Lørdagsmagasinet; Land: Norge;; Tags: Not specified;I-versjon: 00:00|LOGO; </comment>
+              <in>28260</in>
+              <out>28460</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (13)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>29544</in>
+              <out>34869</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (13)</name>
+              <comment>Overskrift: Ødeleggelser i Homs; Sted: Homs;; Kommune: Homs;; Land: Norge;; Tags: ødeleggelser; ruiner; overleve; syria-krigen;; Rubrikk: I den utbombede syriske byen Homs lengter folk etter et vanlig liv. Innbyggerne håper at våpenstillstanden skal føre noe godt med seg. I ruinene prøver folk å klare seg som best de kan, rapporterer vår korrespondent som er i Homs:
+bak skjerm2; Beskrivelse: Div bilder fra ruiner i Homs, grønnsaker sorteres og transporteres på lastebiler; I-versjon: HOMS-ØDELEGGELSER-060316T-DR1; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Dette er så langt vi kommer her i utkanten av Homs. Fem år med krig har satt dype spor i en av Syrias største byer. 
+STAND-UP
+Det gjør at selv om ikke vi slipper inn, så kan sivile krysse denne grensen i motsetning til andre steder i landet. Og tørsten et vanlig liv er sterkt. 
+SYNK. Abeer Daas
+«Vi takker Gud, vi er så lykkelige nå. Vi takker for våpenstillstanden fordi den gir oss litt hvile. Og alle menneskene kan leve i fred. Barn, kvinner, menn. Ingenting er bedre enn et vanlig liv. Vi håper det kan bli sånn det var før. Det er alt hva vi vil ha. Takk Gud, vi er litt glade nå. «
+Det slippes også inn mat. 
+Hver eneste kasse og persillekvist sjekkes. Noen av de bevæpnede gruppene har forlatt området men ikke alle og en serie bilbomber i Homs har gjort situasjonen mer spent. 
+Ali Safi jobber med å transporterte grønnsaker og fra den siste kontrollposten og inn til den andre siden. Også han håper den våpenstillstanden som USA og Russland ble enig om kan føre noe godt med seg. 
+SYNK Ali Saif
+«Ting er bedre nå enn før. Mat er tilgjengelig nå. Og situasjonen er rolig og jeg håper det kan bli bedre. 
+Men Syrias krig har allerede ødelag en generasjon.  Mohammed al-Mergharbel er 16 år og eneforsørger. Han lever av å lempe kasser her på kontrollposten. 
+Skolen måtte han slutte på for lenge siden. 
+Mohammed al-Mergharbel 
+SYNK Jeg sluttet på skolen i femte klasse. Og vi flyttet hit til og jeg sluttet fordi faren min forsvant og det er bare meg som kan tjene penger. Jeg er alene med tre søstre. 
+Han ble fanget av krigen. Han flyttet ut hit fra sentrum av byen…….der ser det slik ut nå. 
+STAND-UP
+Men selv her i ruinene prøver folk som best de kan å overleve. Hind og familien hadde ikke råd til å betale leie der de hadde søkt tilflukt, og dro tilbake til farens leilighet her. 
+Hind
+Hvordan er livet her? 
+Jeg sverger det er så vanskelig og hardt. Alt er ødelagt rundt oss. Det gjør at vi er redde. Det er ikke noen vegger. Vi har forsøkt å reparere huset vårt, men natten er skremmende. 
+Og kulden? 
+Det er veldig kaldt her og vi har ikke noe å varme oss med. Vi har ingenting. Alt er borte. Det er ingenting i hjemmene våre. 
+Syria-krigen har ødelagt flere liv enn det går an å telle. ingen vet hvor lenge våpenstillstanden vil holde, men den har i hvert fall gitt de sivile et ørlite pusterom her i Syria. 
+Foto/red Hossam el-Hadi; </comment>
+              <in>29544</in>
+              <out>34869</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (14)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>34870</in>
+              <out>38173</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (14)</name>
+              <comment>Overskrift: Rapport fra Sigurd Falkenberg Mikkelsen; Sted: Homs;; Kommune: Homs;; Land: Norge;; Tags: Not specified;Beskrivelse: ekstr Live on tape Sigurd Falkenberg Mikkelsen; I-versjon: LOT-SIGURD-060316-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+              <in>34870</in>
+              <out>38173</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (15)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: NRK/Reuters/Commons TV; Rettigh. notat: Alt stoff fra NRK, med unntak av OL (pool), Boris på sykkel (reuters) og fra parlamentet (som er offentlig); </comment>
+              <in>38174</in>
+              <out>47068</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (15)</name>
+              <comment>Overskrift: Londons borgermester stjeler rampelyset; Sted: Croydon; Eton;; Kommune: Greater London; West Berkshire;; Land: Norge;; Tags: politikk; avstemning; maktkamp; eu;; Rubrikk: I Storbritannia er frontene steile i debatten om videre EU-medlemskap. Denne mannen, Boris Johnson, har mer enn noen andre stjålet rampelyset. Hovedstadens borgermester driver beinhard kampanje mot sin egen statsminister for å få britene ut av den europeiske unionen.
+bak skjerm2; Beskrivelse: Boris Johnson kommer inn på scene til panel, vinker til publikum, bilde av sal, Johnson på podiet. Aviser med Johnson på forsiden. Arkiv fra en bustede Johnson, arkiv fra OL, arkiv med gatemusikanter, arkiv i drosje, arkiv fra landsmøte i 2014. Kjører over bro. Skilt til Eton. Elever utenfor Eton college, college-bygg. Mann sre på video hvor Johnson snakker gammel-gresk. Panel-debatt, Johnson i Underhuset; I-versjon: BORIS-JOHNSON-060316T-DR19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. Boris Johnson, eller egentlig bare Boris - det er det alle kaller ham - på vei inn til sin siste "Folkets spørretime", der London-borgerne et par ganger i året kan stille sin borgermester til ansvar. 
+Og det 
+Borgermesterjobben har han hatt i åtte år, nå tror mange han sikler på partilederjobben og statsministerjobben, for mens han fortsetter å skryte av Londons plass i universet - er det annen sak som har det med å dukke opp
+Brussel ja, og EU, for etter at borgermester Boris samlet hele pressekorpset utenfor hjemmet sitt for to uker siden har han blitt selve fronkjemperen for å få landet ut av EU.
+Men uansett om folk er uenige med ham, så liker de ham:
+Nei mannen som tidvis kan se ut som en frisørlærlings verste marerit kan ikke kalles særlig pompør når han foreksempl åpner OL i London
+Der han sykler til og fra avtaler, der han poserer villig med gatemusikanter
+Der han durer rundt i en drosje for å skryte av renere motorer, han er alltid der kameraene er - han ser alltid ut å være der det er oppmerksomhet å få, så hva er han for en fyr?
+Noe av svaret finner vi kanskje et lite stykke vest for London - i Eton på den private eliteskolen for gutter, Eton college, hvor 19 statsministre og flere kongelige har utdannet seg. Her gikk også Boris Johnson - OG David Cameron på slutten av 70-tallet. Av kritikere kalt en lekegrind for overklassen:
+standup
+Armand D'Angour, ekspert på latin og gresk, skrev et ode til OL på oppdrag fra Borids - som fremførte det feilfritt, flere ganger - og glemte å kreditere opphavsmannne:
+Han mener den førsteklasses utdanningen Eton ga Boris et slags kall til å vie livet sitt til noe større enn seg selv.
+Tilbake på Folkets Spørretime har Bors fyrt seg fullstendig opp over hvor mye penger landet bruker på EU vært år
+På Folkets spørretime har nå det hele blitt til en svært EU-debatt, hvor Boris fyrer løs:
+Folkets spørretime er over, skjønt hvem grillet hvem. Om knappe fire måneder er det avstemning om EU - den blir viktig for ham. Kanskje håper han å bli frittet ut i statsministerens spørretime neste gang.; </comment>
+              <in>38174</in>
+              <out>47068</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (16)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: NRK/HBO Nordic; Rettigh. notat: Bildene fra "Vikings"serien eies av HBO Nordic, og skal ikke brukes igjen. Klarert til bruk i denne saken med Isabell Langvatn Goren, PR-sjef i HBO Norway.; </comment>
+              <in>47069</in>
+              <out>56837</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (16)</name>
+              <comment>Overskrift: Gange-Rolv sitt opphav; Sted: FéCamp;; Land: Norge;; Tags: Gange-Rolv; Rollo; vikinger; arkeologi;; Rubrikk: Dette er statuen av Gange-Rolv - en norsk vikinghøvding og sagafigur fra Mørekysten. I flere hundre år har historikere kranglet om Gange-Rolv var identisk med vikinghøvdingen Rollo, den første herskeren av Normandie.
+Denne uken dro en gruppe norske forskere til Normandie med tillatelse til å åpne graven til Rollos etterkommere i håp om å løse mysteriet en gang for alle. 
+bak skjerm2; Beskrivelse: Reportasje on location om et norsk forskerteam som åpner gravene etter Rollos etterkommere i klosterkirken i Lécamp i Normandie.; I-versjon: GANGE-ROLV-OPPHAV-060316T-DR1; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre. Hva skjuler gulvet i et kloster i Frankrike? 
+Etter sju års jobbing skal det endelig skje. En historiker, en professor i anotomi og en sponsor møtes på Gardermoen. De skal til Normandie for å løse en flere hundre år gammel krangel blandt historikere. Svaret ligger kanskje i DNA-teknologien. 
+Vikinghøvdingen Rollo - Den første hersker av Normandie - Men var han dansk eller norsk?
+Som motytelse forsvarte Rollo Frankrike mot andre Vikinger.
+Tidlig mandag morgen i Fécamp i Normandie. Her møter de resten av det norsk-ledede teamet. Spente på hva dagen vil bringe.
+De skal til byens kloster-kirke. 
+I følge norske og islandske historiske kilder er Rollo av Nomandie identisk med Gange-Rolv fra Sunmøre. Men franske kilder derimot - indikerer at han var dansk.
+Rollos levninger finnes ikke - men det gjør forhåpentligvis barnebarnet og oldebarnet. Richard den første og Richard den andre bør ligge under sanden her.
+Målet for initiativtaker Sturla Ellingvåg i forskningsstiftelsen Explico er å få tatt en fullgod DNA-prøve av levningene. Da kan de i praksis avgjøre den årelange historie-striden om Rollos bakgrunn en gang for alle.
+Konsekvensene kan bli store. For Rollo er nemlig stamfaren til Vilhelm Eurobreren. Som i sin tur stamfaren til det engelske kongehuset. Så satt på spissen betyr det at de kan bevise at den opprinnelige engelske kongslekten er av vikingblod fra Sunnmøre.
+Det er en historie-interessert styreformann i Samlerhuset som er sponsor for prosjektet. Han har fått en personlig motivasjon.
+I bunnen av den siste blykisten finner de det de ønsket seg aller mest. Tenner.
+Det vil i så fall være et avgjørende bevis i striden om Rollos opphav.
+Fortsettelse følger - Til sommeren vil DNA-analysene være klare. Da får vi forhåpntligvis det endelige svaret. Om Rollo var Dansk eller Norsk.; </comment>
+              <in>47069</in>
+              <out>56837</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (17)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>56838</in>
+              <out>57038</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (17)</name>
+              <comment>Overskrift: Sporten; Land: Norge;; Tags: Not specified;I-versjon: 00:00|Navnesuper|1:Marianne; Notat: I sporten er tallet 42.
+IKKE ENDRE TID PÅ SUPER!!
+BAK SPORT
+BAK LEDNYHET; </comment>
+              <in>56838</in>
+              <out>57038</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (18)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>57039</in>
+              <out>58600</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (18)</name>
+              <comment>Overskrift: Sølv og bronse til Norge; Sted: Holmenkollen;; Kommune: Oslo;; Fylke: Oslo;; Land: Norge;; Tags: Bjørndalen legende; super svendsen; svendsen mørkt; svendsen tilbake;; Rubrikk: Ja, 42 år gamle Ole Einar Bjørndalen tok i dag sin VM-medalje nummer 42. Veteranen fulgte opp gårsdagens sølv med et nytt et i dag.
+legg storskjermclipet her
+bak skjerm2; Beskrivelse: Bilder fra rennet, int emil, int ole; I-versjon: OLE-EMIL-060316-SP19; Notat: Skiskyting er ikke verdens største idrett, men få idretter har utøvere som Ole EInar Bjørndalen. Viser igjen at en 42 år gammel kropp ikke er noen hindring for å fortsette å levere. Han følger opp gårsdagens sølv med et nytt i dag. 
+42-åringen har nå 42 VM-medaljer.
+På plassen bak fulgte Emil Hegle Svendsen. En mann som har slitt tungt i lang tid. I dag gikk han seg opp fra en 17-plass til bronse.; </comment>
+              <in>57039</in>
+              <out>58600</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (19)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>58601</in>
+              <out>60591</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (19)</name>
+              <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+              <in>58601</in>
+              <out>60591</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (20)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>60592</in>
+              <out>62199</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (20)</name>
+              <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+              <in>60592</in>
+              <out>62199</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (21)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>62200</in>
+              <out>66488</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (21)</name>
+              <comment>Overskrift: Værmeldingen; Land: Norge;; Tags: Not specified;I-versjon: VÆRET-060316-DR19; </comment>
+              <in>62200</in>
+              <out>66488</out>
+            </marker>
+          </clip>
+        </children>
+      </bin>
+      <sequence>
+        <name>jrpa-ths-skvln-henrik4</name>
+        <duration>7119</duration>
+        <rate>
+          <ntsc>False</ntsc>
+          <timebase>25</timebase>
+        </rate>
+        <media>
+          <video>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <link>
+                  <mediatype>video</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>1</clipindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <link>
+                  <mediatype>video</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>2</clipindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                  <clipindex>2</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <link>
+                  <mediatype>video</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>3</clipindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                  <clipindex>3</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+          </video>
+          <audio>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>3040</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>62175</in>
+                <out>65215</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>0</start>
+                <end>3040</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>MSPO40750416AH</name>
+                <duration>1999</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>77615</in>
+                <out>79614</out>
+                <masterclipid>MSPO40750416AH</masterclipid>
+                <start>3040</start>
+                <end>5039</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                </sourcetrack>
+                <file id="MSPO40750416AH1">
+                  <name>MSPO40750416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/MSPO40750416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+              </clipitem>
+              <clipitem>
+                <name>NNFA03030616AH</name>
+                <duration>2080</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>58609</in>
+                <out>60689</out>
+                <masterclipid>NNFA03030616AH</masterclipid>
+                <start>5039</start>
+                <end>7119</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                </sourcetrack>
+                <file id="NNFA03030616AH1">
+                  <name>NNFA03030616AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA03030616AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: Alpin; Land: Norge;; Tags: Not specified;Rubrikk: Henrik Kristoffersen sikret i dag seieren i verdenscupen i slalåm. Andreplass bak Marcel Hirscher i Kransjka Gora holdt til å slå østerrikeren sammenlagt. Kristoffersen sier han aldri har følt så mye press før en konkurranse. 
+legg storskjermclipet her
+bak skjerm2
+Henrik Kristoffersen kjørte seg opp fra sjetteplass til 
+annenplass i slalåmdelen og sikret seg verdenscupen i slalåm.; I-versjon: HENRIK-KULA-060316-SP19-001; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.; </comment>
+                  <in>58601</in>
+                  <out>60591</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: VM-sølv til Lunde Pedersen; Kommune: Berlin;; Land: Norge;; Tags: Skøyter; VM; Allround; Sverre Lunde Pedersen; Sølv; Kramer;; Rubrikk: Sverre Lunde Pedersen tok sølv i allround-VM i dag. 
+Og det med mamma og pappa på tribunen.
+legg storskjermclipet her
+bak skjerm2
+Sverre Lunde Pedersen tok sølv i allround-VM 
+på skøyter i Berlin.; Beskrivelse: Sverre Lunde Pedersen tok sølv i VM allround med mamma og pappa på tribunen.; I-versjon: SVERRE-SOLV-060316-SP19; Notat: Legg inn blokken under grå strek! Trykk på pilen nede til venstre.
+Mamma og pappas gullgutt måtte nøye seg med å være sølvgutt i dag.
+Men dette var mer et vunnet sølv ennet et tapt gull.
+Men Lunde Pedersen måtte gå helt i kjelleren får å sikre sølvet. 10 000 meteren var en kamp mot klokka etter at Jan Blokhousen hadde gått et kjempeløp i paret før.
+Pappa og tidligere landslagstrener, Jarle Pedersen fikk også se at sønnen var best på 1500-meteren tidligere på dagen.; </comment>
+                  <in>60592</in>
+                  <out>62199</out>
+                </marker>
+              </clipitem>
+            </track>
+          </audio>
+        </media>
+      </sequence>
+    </children>
+  </project>
+</xmeml>

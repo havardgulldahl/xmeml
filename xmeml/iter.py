@@ -49,7 +49,11 @@ def getframerate(timebase, ntsc):
     else:
         logging.warning('getframerate: got an unhandled timebase: %r (ntsc=%r)', timebase, ntsc)
 
-class XmemlFileError(Exception):
+class XmemlError(Exception):
+    pass
+class XmemlFileError(XmemlError):
+    pass
+class XmemlNoTransitionError(XmemlError):
     pass
 
 class Range(object):
@@ -206,10 +210,16 @@ class ClipItem(Item):
             # clip is reversed, just flip it back
             self.inpoint, self.outpoint = self.outpoint, self.inpoint
         self.duration = self.outpoint-self.inpoint
-        if self.start == -1.0: # start is within a transition
-            self.start = self.getprevtransition().centerframe
-        if self.end == -1.0: # end is within a transition
-            self.end = self.getfollowingtransition().centerframe
+        if self.start == -1.0: # start is unkown, presumably within a transition
+            try:
+                self.start = self.getprevtransition().centerframe
+            except XmemlNoTransitionError:
+                logging.warning('Could not figure out start point of clip. Please double check this clip: %r' % self.name)
+        if self.end == -1.0: # end is unknown, presumably within a transition
+            try:
+                self.end = self.getfollowingtransition().centerframe
+            except XmemlNoTransitionError:
+                logging.warning('Could not figure out end point of clip. Please double check this clip: %r' % self.name)
         try:
             self.file = File.filelist[tree.find('file').get('id')]
         except (AttributeError, KeyError):
@@ -250,13 +260,19 @@ class ClipItem(Item):
                 return e
         return None
 
+    def gettransition(self, xpath):
+        try:
+            item = self.tree.xpath(xpath)[0]
+            return TransitionItem(item)
+        except IndexError:
+            # no transition found
+            raise XmemlNoTransitionError
+
     def getprevtransition(self):
-        item = self.tree.xpath('./preceding-sibling::transitionitem[1]')[0]
-        return TransitionItem(item)
+        return self.gettransition('./preceding-sibling::transitionitem[1]')
 
     def getfollowingtransition(self):
-        item = self.tree.xpath('./following-sibling::transitionitem[1]')[0]
-        return TransitionItem(item)
+        return self.gettransition('./following-sibling::transitionitem[1]')
 
     def audibleframes(self, threshold=AUDIOTHRESHOLD):
         "Returns list of (start, end) pairs of audible chunks"

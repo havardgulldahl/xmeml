@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<!-- FCP version 1.0.9.7 -->
+<xmeml version="3">
+  <project>
+    <name>Dagsrevyen-240216-Haga-Lunde</name>
+    <children>
+      <bin>
+        <name>Source Clips</name>
+        <children>
+          <clip id="NNFA19022416AH">
+            <name>NNFA19022416AH</name>
+            <duration>66160</duration>
+            <rate>
+              <ntsc>False</ntsc>
+              <timebase>25</timebase>
+            </rate>
+            <masterclipid>NNFA19022416AH</masterclipid>
+            <ismasterclip>TRUE</ismasterclip>
+            <logginginfo>
+              <description>Dagsrevyen (39:266 @ Dagsrevyen)</description>
+              <lognote />
+            </logginginfo>
+            <comments>
+              <mastercomment1>2015;ARKIV_HK;CLIP;OPROBROWSER;oprog3app04;OPROKEYFRAMES;OPROMGRID;OPROPGMSPILLERWEB;WEEK47;_PRFDATA_PGM_OK_OPRO;</mastercomment1>
+              <mastercomment2 />
+              <mastercomment3 />
+              <mastercomment4 />
+            </comments>
+            <media>
+              <video>
+                <track>
+                  <clipitem>
+                    <name>NNFA19022416AH</name>
+                    <anamorphic>TRUE</anamorphic>
+                  </clipitem>
+                </track>
+              </video>
+            </media>
+            <file id="NNFA19022416AH1">
+              <name>NNFA19022416AH</name>
+              <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+              <timecode>
+                <string>00:00:00:00</string>
+                <frame>0</frame>
+                <displayformat>NDF</displayformat>
+                <source>source</source>
+              </timecode>
+            </file>
+            <marker>
+              <name>Rettigheter (0)</name>
+              <comment>Rettighetsnivå: Not specified;Rettighetseier: Not specified;</comment>
+              <in>0</in>
+              <out>1019</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (0)</name>
+              <comment>Overskrift: Velkommen til Dagsrevyen; Land: Norge;; Tags: Not specified;I-versjon: 00:01|SKJERM; </comment>
+              <in>0</in>
+              <out>1019</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (1)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Danmarks Radio; </comment>
+              <in>1020</in>
+              <out>5774</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (1)</name>
+              <comment>Overskrift: Regjeringstrøbbel i Danmark; Sted: København;; Kommune: København;; Land: Norge;; Tags: Regjeringstrøbbel i Danmark;; Rubrikk: Danmarks statsminister Lars Løkke Rasmussen kjemper nå for å beholde sin mindretallsregjering, og truer med å lyse ut nyvalg dersom det reises mistillit mot hans miljøminister.
+Løkke Rasmussen og partiet Venstre støttes av de tre partiene Det Konservative Folkeparti, Liberal Allianse og Dansk Folkeparti. Det er Det Konservative Folkepartiet som nå truer med å velte regjeringen hvis ikke miljøministeren går av. ; Beskrivelse: Regjeringsdrøftinger, forhandlinger, intervjuer; I-versjon: MINISTERSTORM-240216-DR19; </comment>
+              <in>1020</in>
+              <out>5774</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (2)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>5775</in>
+              <out>8455</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (2)</name>
+              <comment>Overskrift: Direkte: København; Medvirkende: Petter Oulie-Hauge; Land: Norge;; Tags: Not specified;I-versjon: M:; </comment>
+              <in>5775</in>
+              <out>8455</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (3)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>8456</in>
+              <out>10810</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (3)</name>
+              <comment>Overskrift: Vimpelcom; Land: Norge;; Tags: Not specified;Rubrikk: Styreleiaren i Telenor Gunn Wersted var i kveld i næringsdeparementet for å forklare kva rolle Telenor har hatt i Vimpelcomsaka. Vimpelcom har godtatt å betale nesten sju milliarder kroner til amerikanske og nederlandske styresmakter. 
+Fire Telenortoppar er suspenderte og det pågår no ei gransking av Telenors rolle i korrupsjonssaka.; I-versjon: MØTE-WÆRSTED-240216S-DR19; </comment>
+              <in>8456</in>
+              <out>10810</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (4)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>10811</in>
+              <out>13439</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (4)</name>
+              <comment>Overskrift: Direkte: Oslo; Medvirkende: Trond Lydersen, reporter; Land: Norge;; Tags: Not specified;I-versjon: M:; </comment>
+              <in>10811</in>
+              <out>13439</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (5)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>13440</in>
+              <out>15839</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (5)</name>
+              <comment>Overskrift: Ras stenger veg, BT-nedlegging, Innbruddsbølge; Sted: Storvik; Bergen; Kristiansand;; Kommune: Meløy; Bergen; Kristiansand;; Fylke: Nordland; Hordaland; Vest-Agder;; Land: Norge;; Tags: ras; oppsigelser; avis; innbrudd;; Rubrikk: Vi skal ha flere nyheter fra landet vårt, og fortsetter til Meløy i Nordland der geologer i dag har vært på befaring der det gikk et jordras i går kveld. Fylkesvei 17 blir stengt i flere dager.; Beskrivelse: stort ras stenger veg, bom stenger veg, arkiv frå redaksjonslokale BT, BT utanfrå, merker etter innbrot før/vindu, rekkehus og einebustader, postkassar; I-versjon: NORGESPAKKE-240216-DR19; </comment>
+              <in>13440</in>
+              <out>15839</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (6)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>15840</in>
+              <out>16291</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (6)</name>
+              <comment>Overskrift: Bil i sjøen; Sted: Vindafjorden;; Kommune: Vindafjord;; Fylke: Rogaland;; Land: Norge;; Tags: bil; sjøen; ulykke;; Rubrikk: Den 36 år gamle mannen som kjørte i sjøen i Vindafjord nord i Rogaland i morges, er kritisk skadd. Det opplyser Haukeland universitetssykehus. 36-åringen kjørte ut av veien mellom  Sandeid og Vikedal, og ble først hentet opp av dykkere etter 45 minutter.; Beskrivelse: Bil dras opp av sjøen, ambulanser på stedet; I-versjon: BIL-I-SJØEN-240216S-DR19; </comment>
+              <in>15840</in>
+              <out>16291</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (7)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>16292</in>
+              <out>20122</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (7)</name>
+              <comment>Overskrift: 5500 jobber i faresonen; Sted: Bergen og Oslo;; Land: Norge;; Tags: Dei;; Rubrikk: Det er tøffare tider i arbeidsmarknaden, som vi veit. I januar fekk 5 475 personar varsel om at dei mista jobben eller 
+eller blir permitterte. Det er 78,8 prosent fleire enn i januar i fjor. 
+Halvparten av permitteringene og oppseiingane kom i Rogaland og Hordaland. 
+Ved Bergen Engines er ein tredel av produksjonsstokken no permittert. ; Beskrivelse: to produksjonsmedarbeidere jobber i verkstedhallen til Bergen Engines, eksteriør Arbeids- og velferdsdirektoratet, NAV, Sirgun Vågeng står sammen med kollega; I-versjon: OPPSIGELSER-ØKER-240216-DR19; </comment>
+              <in>16292</in>
+              <out>20122</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (8)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>20123</in>
+              <out>21461</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (8)</name>
+              <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+              <in>20123</in>
+              <out>21461</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (9)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>21462</in>
+              <out>25429</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (9)</name>
+              <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+              <in>21462</in>
+              <out>25429</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (10)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>25430</in>
+              <out>28153</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (10)</name>
+              <comment>Overskrift: Gjest: Rita Helgesen; Medvirkende: Rita Helgesen, leder Norsk Lektorlag; Land: Norge;; Tags: Not specified;Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene:; I-versjon: M:; </comment>
+              <in>25430</in>
+              <out>28153</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (11)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: rtv, aptn, uselxp, atorf, iestcu; </comment>
+              <in>28154</in>
+              <out>31177</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (11)</name>
+              <comment>Overskrift: Hellas/Østerrike flyktninger, Trump vinner Nevada, svensk jente fra fra IS, gorilla i rommet.; Sted: Idomeni; Wien; Las Vegas; Irak; ISS;; Land: Norge;; Tags: Hellas; Wien; flyktninger; Balkan; Trump; Nevada; Svensk jente; IS; gorilla; rommet;; Rubrikk: No utanriks og først om dei stadig strengere grensetiltaka som flyktningene møter i Europa.; I-versjon: VERDEN-ONSDAG-240216-DR19; </comment>
+              <in>28154</in>
+              <out>31177</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (12)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>31178</in>
+              <out>35201</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (12)</name>
+              <comment>Overskrift: Tre Michelin-stjerner til Maaemo; Sted: Oslo;; Kommune: Oslo;; Fylke: Oslo;; Land: Norge;; Tags: michelin; mat; maaemo; oslo;; Rubrikk: I dag ble de ypperste restaurantene i Norden kåret av den prestisjetunge Michelin-guiden. For første gang får en norsk restaurant utenfor Oslo en Michelin-stjerne. Restauranten Re-Naa i Stavanger får en stjerne som betyr at den er en "eksepsjonelt bra restaurant i sin kategori". Også restauranten Kontrast i Oslo hedres med en stjerne, mens Statholdergaarden og Fauna beholder hver sin stjerne. 
+Størst anerkjennelse fikk i dag restaurant Maaemo i Oslo - som eneste her i landet med hele tre Michelin-stjerner - noe som betyr at det er en restaurant "verdt en reise i seg selv".; Beskrivelse: kokker lager deilig mat, eksteriørt maaemo; I-versjon: MICHELIN-STJERNER-240216-DR19; </comment>
+              <in>31178</in>
+              <out>35201</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (13)</name>
+              <comment>Rettighetsnivå: amber; Rettighetseier: Not specified;</comment>
+              <in>35202</in>
+              <out>38129</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (13)</name>
+              <comment>Overskrift: RE-NAA i Stavanger får en Michelin-stjerne; Medvirkende: Mathias Oppedal,reporter
+Sven Erik Renaa, kokk og eier av RE-NAA
+Torill Renaa, servitør, og eier av RE-NAA
+
+; Sted: Stavanger; Kommune: Stavanger; Fylke: Rogaland; Land: Norge;; Tags: michelin, mat, re-naa; Rubrikk: I dag ble de ypperste restaurantene i Norden kåret av den prestisjetunge Michelin-guiden. For første gang får en norsk restaurant utenfor Oslo en Michelin-stjerne. Restauranten Re-Naa i Stavanger får en stjerne som betyr at den er en "eksepsjonelt bra restaurant i sin kategori". Også restauranten Kontrast i Oslo hedres med en stjerne, mens Statholdergaarden og Fauna beholder hver sin stjerne. 
+Størst anerkjennelse fikk i dag restaurant Maaemo i Oslo - som eneste her i landet med hele tre Michelin-stjerner - noe som betyr at det er en restaurant "verdt en reise i seg selv".; I-versjon: RE-NAA-240216-DR19; </comment>
+              <in>35202</in>
+              <out>38129</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (14)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>38130</in>
+              <out>44253</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (14)</name>
+              <comment>Overskrift: Gjest: Sven Erik Renaa; Land: Norge;; Tags: Not specified;I-versjon: M:; </comment>
+              <in>38130</in>
+              <out>44253</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (15)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>44254</in>
+              <out>46296</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (15)</name>
+              <comment>Overskrift: Top gear beklager; Sted: london;; Land: Norge;; Tags: Not specified;Beskrivelse: clarkson foran fanskare, clarkson på sykkel; I-versjon: BEKLAGER-240216-DR19; </comment>
+              <in>44254</in>
+              <out>46296</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (16)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>46297</in>
+              <out>48337</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (16)</name>
+              <comment>Overskrift: Direkte: London; Land: Norge;; Tags: Not specified;Rubrikk: Storbritannia- Betre seint enn aldri, heiter det - og i dag - rundt eit år sidan den britiske programleiaren i Top gear slo til ein produsenten - så seier han skikkleleg unnskyld.  ; I-versjon: M:; </comment>
+              <in>46297</in>
+              <out>48337</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (17)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>48338</in>
+              <out>51970</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (17)</name>
+              <comment>Overskrift: Norges største privatfinansierte kulturhus åpner; Sted: Oslo;; Kommune: Oslo;; Fylke: Oslo;; Land: Norge;; Tags: kulturhus; bank; oppussing; renovering; komiker;; Rubrikk: To bankbygg fra slutten av 1800-tallet i Oslo fremstår nå i ny drakt - som ett av Norges største kulturhus.
+Og det skjer med private penger. 600 millionar kostar kulturbygget Sentralen.; Beskrivelse: Eksteriør av Sentralen eller gamle Christian sparebank. Morten Ramm som tuller i vinterhagen i Sentralen. Omvisning i Sentralen. Velvet, gymsalen og banksalen.; I-versjon: SENTRALEN-240216-DR19; </comment>
+              <in>48338</in>
+              <out>51970</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (18)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>51971</in>
+              <out>52101</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (18)</name>
+              <comment>Overskrift: Sporten; Land: Norge;; Tags: Not specified;I-versjon: 00:00|Navnesuper|1:Karen-Marie; </comment>
+              <in>51971</in>
+              <out>52101</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (19)</name>
+              <comment>Rettighetsnivå: red; Rettighetseier: Not specified;</comment>
+              <in>52102</in>
+              <out>52677</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (19)</name>
+              <comment>Overskrift: X-GAMES; Land: Norge;; Tags: Not specified;Rubrikk: Snowboardforbundet trekker seg fra den sportslige samarbeidsavtalen med TV 2. Det melder SKI-OG SNOWBOARDMAGASINET Fri Flyt.
+Årsaken er at det ikke er mulig å teste utøverne i X Games under konkurranse. Avgjørelsen kom etter et møte med Norges Idrettsforbund. Skiforbundet trakk seg fra avtalen søndag. x-games skal fortsatt vises på TV.; I-versjon: SNOWBOARD-240216S-SP19; </comment>
+              <in>52102</in>
+              <out>52677</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (20)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>52678</in>
+              <out>54838</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (20)</name>
+              <comment>Overskrift: - X-Games skal fortsatt vises på TV; Land: Norge;; Tags: Not specified;Rubrikk: Snowboardforbundet trekker seg fra den sportslige samarbeidsavtalen med TV 2. Det melder SKI-OG SNOWBOARDMAGASINET Fri Flyt.
+Årsaken er at det ikke er mulig å teste utøverne i X Games under konkurranse. Avgjørelsen kom etter et møte med Norges Idrettsforbund. Skiforbundet trakk seg fra avtalen søndag. x-games skal fortsatt vises på TV.; I-versjon: DOP-XGAMES-240216-SP19; </comment>
+              <in>52678</in>
+              <out>54838</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (21)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+              <in>54839</in>
+              <out>57031</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (21)</name>
+              <comment>Overskrift: Skiskyting; Sted: Beitostølen/Holmenkollen;; Kommune: Østre Slidre/Oslo;; Land: Norge;; Tags: Emil Hegle Svendsen; Tom Idar Haugen; skiskyting; ski; smøring; smurning; Holmenkollen;; Rubrikk: Emil Hegle Svendsen var svært misfornøyd med skiene han fikk før sesongen. Det kommer fram i TV-serien "Skiskytterne" på NRK 1 i kveld. Men etter grundige tester har han funnet ski som fungerer bra, 1 uke før VM. ; Beskrivelse: Svendsen går forbi i sporet på trening og tester ski på Sjusjøen før sesongen; I-versjon: HEGLE-SKI-240216-SP19; </comment>
+              <in>54839</in>
+              <out>57031</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (22)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>57032</in>
+              <out>59015</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (22)</name>
+              <comment>Overskrift: Alpint; Land: Norge;; Tags: Not specified;Rubrikk: Paralellslalåm er IKKE slalåm. Det mener Henrik Kristoffersen etter konkuransen i Stockholm i går. Både han og Kjetil Jansrud mener det er feil at denne konkurranseformen kan avgjøre slalåmcupen. ; I-versjon: HENR-PARALLELL-240216-SP19; </comment>
+              <in>57032</in>
+              <out>59015</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (23)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Arkiv og Byrå; </comment>
+              <in>59016</in>
+              <out>60115</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (23)</name>
+              <comment>Overskrift: FIFA-skandalen; Land: Norge;; Tags: sepp blatter; michel platini; utestengelse; jose mourinho; fremtid; rykteflom;; Rubrikk: Sepp Blatter og Michel Platini får redusert utestengelse etter FIFA-skandalen.; Beskrivelse: Bilder av Blatter, Platini og Mourinho,; I-versjon: FOTBALL-NEWS-240216-SP19; </comment>
+              <in>59016</in>
+              <out>60115</out>
+            </marker>
+            <marker>
+              <name>Rettigheter (24)</name>
+              <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+              <in>60116</in>
+              <out>64373</out>
+            </marker>
+            <marker>
+              <name>Hvem-Hva-Hvor (24)</name>
+              <comment>Overskrift: Værmeldingen; Land: Norge;; Tags: Not specified;I-versjon: VÆRET;DIREKTE VÆR; </comment>
+              <in>60116</in>
+              <out>64373</out>
+            </marker>
+          </clip>
+        </children>
+      </bin>
+      <sequence>
+        <name>Dagsrevyen-240216-Haga-Lunde</name>
+        <duration>1336</duration>
+        <rate>
+          <ntsc>False</ntsc>
+          <timebase>25</timebase>
+        </rate>
+        <media>
+          <video>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <link>
+                  <mediatype>video</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>1</clipindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <link>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                  <clipindex>1</clipindex>
+                  <groupindex>1</groupindex>
+                </link>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+          </video>
+          <audio>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>1</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>2</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>3</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>4</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>5</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>6</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>7</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+            <track>
+              <clipitem>
+                <name>NNFA19022416AH</name>
+                <duration>1336</duration>
+                <rate>
+                  <ntsc>False</ntsc>
+                  <timebase>25</timebase>
+                </rate>
+                <in>20126</in>
+                <out>21462</out>
+                <masterclipid>NNFA19022416AH</masterclipid>
+                <start>0</start>
+                <end>1336</end>
+                <sourcetrack>
+                  <mediatype>audio</mediatype>
+                  <trackindex>8</trackindex>
+                </sourcetrack>
+                <file id="NNFA19022416AH1">
+                  <name>NNFA19022416AH</name>
+                  <pathurl>file://localhost/Volumes/omfs/clip.dir/MXF/1080i/NNFA19022416AH.mxf</pathurl>
+                  <timecode>
+                    <string>00:00:00:00</string>
+                    <frame>0</frame>
+                    <displayformat>NDF</displayformat>
+                    <source>source</source>
+                  </timecode>
+                </file>
+                <marker>
+                  <name>Rettigheter (0)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: Not specified;</comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (0)</name>
+                  <comment>Overskrift: E-tjenesten; Land: Norge;; Tags: Not specified;Rubrikk: Ei av dei viktigaste oppgåvene for Etterretningtjenesta framover blir å å følgje med på Russland. Det sa  etterretningssjef Morten Haga Lunde då han i dag la fram si ugraderte trusselvurdering for 2016. Lunde sa også at Noreg i stadig større grad blir utsett for spionasje i det digitale rom.; I-versjon: DIGITAL-TRUSSEL-240216S-DR19; </comment>
+                  <in>20123</in>
+                  <out>21461</out>
+                </marker>
+                <marker>
+                  <name>Rettigheter (1)</name>
+                  <comment>Rettighetsnivå: green; Rettighetseier: NRK; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+                <marker>
+                  <name>Hvem-Hva-Hvor (1)</name>
+                  <comment>Overskrift: Vinterferien er gammeldags ifølge Marianne Aasen; Sted: Bergen; Oslo;; Kommune: Bergen; Oslo;; Fylke: Hordaland; Oslo;; Land: Norge;; Tags: kampen skole; vinterferie; skolefri; aktivitetsskolen; skolebarn; elever; påskeferie;; Rubrikk: Vinterferie er gammeldags og bør erstattes av mer fleksible fridager gjennom skoleåret. Det foreslår Arbeiderpartiets stortingsrepresentant, Marianne Aasen.
+For mange skuleelevar er det i år berre tre veker mellom vinterferie og påskeferie. I Bergen har dei i år slått saman desse feriene.; Beskrivelse: Bilder av elevene ved Kampen skole som skal lage gipsmasker. SSynkSYNK - Stortingsrepresentant Marianne AasenBilder av Minde skole i Bergen ( eksteriørt) Tre elever på skolen kommer og setter seg ved pulten. Bilder av Sletteløkka skole Bergen,- SYNK forelder; I-versjon: VINTERFERIE2-230216-DR19; </comment>
+                  <in>21462</in>
+                  <out>25429</out>
+                </marker>
+              </clipitem>
+            </track>
+          </audio>
+        </media>
+      </sequence>
+    </children>
+  </project>
+</xmeml>

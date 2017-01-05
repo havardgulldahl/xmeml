@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.2">
+    <project name="Selvika 1. juni 2013" uid="BBC54D19-2A61-4644-9D9A-A44DB479F7DE" eventID="DA318839-7F02-4B57-B666-CC73A22B330B" location="file://localhost/Users/n18040/Movies/Final%20Cut%20Projects/Selvika%201.%20juni%202013/">
+        <resources>
+            <format id="r1" name="FFVideoFormat720p2997" frameDuration="1001/30000s" width="1280" height="720"/>
+            <projectRef id="r2" name="New Event 2.06.13" uid="DA318839-7F02-4B57-B666-CC73A22B330B"/>
+            <asset id="r3" name="M4H00155" uid="1D85C4ADA187FDF5E16CC4F8ECDD0DC5" projectRef="r2" src="file://localhost/Users/n18040/Movies/Final%20Cut%20Events/New%20Event%202.06.13/Original%20Media/M4H00155.mp4" start="0s" duration="10990980/90000s" hasVideo="1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="24000">
+                <bookmark>Ym9va2wDAAAAAAQQMAAAAB1aNtbrWkQEZ0/UC0RM4t53Xv7QXlVYigNm2MG5fMWRUAIAAAUAAAABAQAAVXNlcnMAAAAGAAAAAQEAAG4xODA0MAAABgAAAAEBAABNb3ZpZXMAABAAAAABAQAARmluYWwgQ3V0IEV2ZW50cxEAAAABAQAATmV3IEV2ZW50IDIuMDYuMTMAAAAOAAAAAQEAAE9yaWdpbmFsIE1lZGlhAAAMAAAAAQEAAE00SDAwMTU1Lm1wNBwAAAABBgAABAAAABQAAAAkAAAANAAAAEwAAABoAAAAgAAAAAgAAAAEAwAASRACAAAAAAAIAAAABAMAAHVpBQAAAAAACAAAAAQDAAAiagUAAAAAAAgAAAAEAwAA6aVAAAAAAAAIAAAABAMAAOqlQAAAAAAACAAAAAQDAABZvUAAAAAAAAgAAAAEAwAAXL1AAAAAAAAcAAAAAQYAALgAAADIAAAA2AAAAOgAAAD4AAAACAEAABgBAAAIAAAAAAQAAEG1Kz9aAAAAGAAAAAECAAABAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAQUAAAQAAAADAwAAAwAAAAQAAAADAwAABQAAAAgAAAAEAwAABQAAAAAAAAAEAAAAAwMAAIzgkQgMAAAAAQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAHBRwyIAAAAIAAAAAAQAAEG2EFQxAAAAJAAAAAEBAAAwREIyMDk3OC0yMUI5LTM2NjQtQTBGMC0wRTRDRTc2MTY3NzEYAAAAAQIAAIEAAAABAAgA7z8AAAEACAAAAAAAAAAAAAEAAAABAQAALwAAAAQAAAADAwAAAAgAKOQAAAD+////AQAAAAAAAAASAAAABBAAAJQAAAAAAAAABRAAACgBAAAAAAAAEBAAAFwBAAAAAAAAQBAAAEwBAAAAAAAAVBAAAIQBAAAAAAAAVRAAAJABAAAAAAAAVhAAAHwBAAAAAAAAAiAAADgCAAAAAAAAECAAALgBAAAAAAAAESAAAOwBAAAAAAAAEiAAAMwBAAAAAAAAEyAAANwBAAAAAAAAICAAABgCAAAAAAAAMCAAAHwBAAAAAAAAAcAAAJwBAAAAAAAAEcAAABQAAAAAAAAAEsAAAKwBAAAAAAAAENAAAEQCAAAAAAAA</bookmark>
+                <metadata>
+                    <md key="com.apple.proapps.spotlight.kMDItemCodecs">
+                        <array>
+                            <string>MPEG-4 Video</string>
+                            <string>AAC</string>
+                        </array>
+                    </md>
+                    <md key="com.apple.proapps.mio.ingestDate" value="2013-06-02 23:04:25 +0200"/>
+                </metadata>
+            </asset>
+            <asset id="r4" name="01 Get Lucky (Radio Edit) [feat. Pha" uid="100F1059D96A803D835BDED49EF13521" projectRef="r2" src="file://localhost/Users/n18040/Movies/Final%20Cut%20Events/New%20Event%202.06.13/Original%20Media/01%20Get%20Lucky%20(Radio%20Edit)%20%5Bfeat.%20Pha.m4a" start="0s" duration="10920612/44100s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+                <bookmark>Ym9va4gDAAAAAAQQMAAAANMigqTeHf63x5EjedRiWfMnbGnBv+Jfx2FFz2/91Wu5bAIAAAUAAAABAQAAVXNlcnMAAAAGAAAAAQEAAG4xODA0MAAABgAAAAEBAABNb3ZpZXMAABAAAAABAQAARmluYWwgQ3V0IEV2ZW50cxEAAAABAQAATmV3IEV2ZW50IDIuMDYuMTMAAAAOAAAAAQEAAE9yaWdpbmFsIE1lZGlhAAAoAAAAAQEAADAxIEdldCBMdWNreSAoUmFkaW8gRWRpdCkgW2ZlYXQuIFBoYS5tNGEcAAAAAQYAAAQAAAAUAAAAJAAAADQAAABMAAAAaAAAAIAAAAAIAAAABAMAAEkQAgAAAAAACAAAAAQDAAB1aQUAAAAAAAgAAAAEAwAAImoFAAAAAAAIAAAABAMAAOmlQAAAAAAACAAAAAQDAADqpUAAAAAAAAgAAAAEAwAAWb1AAAAAAAAIAAAABAMAAK6+QAAAAAAAHAAAAAEGAADUAAAA5AAAAPQAAAAEAQAAFAEAACQBAAA0AQAACAAAAAAEAABBtym3cwAAABgAAAABAgAAAQAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAEFAAAEAAAAAwMAAAMAAAAEAAAAAwMAAAUAAAAIAAAABAMAAAUAAAAAAAAABAAAAAMDAACM4JEIDAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAABwUcMiAAAACAAAAAAEAABBthBUMQAAACQAAAABAQAAMERCMjA5NzgtMjFCOS0zNjY0LUEwRjAtMEU0Q0U3NjE2NzcxGAAAAAECAACBAAAAAQAIAO8/AAABAAgAAAAAAAAAAAABAAAAAQEAAC8AAAAEAAAAAwMAAAAIACjkAAAA/v///wEAAAAAAAAAEgAAAAQQAACwAAAAAAAAAAUQAABEAQAAAAAAABAQAAB4AQAAAAAAAEAQAABoAQAAAAAAAFQQAACgAQAAAAAAAFUQAACsAQAAAAAAAFYQAACYAQAAAAAAAAIgAABUAgAAAAAAABAgAADUAQAAAAAAABEgAAAIAgAAAAAAABIgAADoAQAAAAAAABMgAAD4AQAAAAAAACAgAAA0AgAAAAAAADAgAACYAQAAAAAAAAHAAAC4AQAAAAAAABHAAAAUAAAAAAAAABLAAADIAQAAAAAAABDQAABgAgAAAAAAAA==</bookmark>
+                <metadata>
+                    <md key="com.apple.proapps.mio.ingestDate" value="2013-06-02 23:11:31 +0200"/>
+                </metadata>
+            </asset>
+        </resources>
+        <sequence duration="3893336944/35280000s" format="r1" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+            <spine>
+                <clip offset="0s" name="M4H00155" duration="632632/30000s" start="1001/120s" tcFormat="NDF">
+                    <video offset="0s" ref="r3" duration="3663660/30000s">
+                        <audio lane="-1" offset="0s" ref="r3" duration="2930928/24000s" role="dialogue" outCh="L, R"/>
+                    </video>
+                    <clip lane="-1" offset="294294343/35280000s" name="01 Get Lucky (Radio Edit) [feat. Pha" duration="26485283/240000s" start="17862323/7056000s">
+                        <adjust-volume>
+                            <param name="amount" keyValues="0dB; -35dB; -78dB; 6dB" keyTimes="418955979/35280000s; 432971106/35280000s; 468453084/35280000s; 485688393/35280000s"/>
+                        </adjust-volume>
+                        <audio offset="0s" ref="r4" duration=/Users/n18040/Dropbox/xmeml/BRENNER DAGDROMMER mktf61000312u.fcpxml"10920612/44100s" role="music" outCh="L, R"/>
+                    </clip>
+                    <clip lane="1" offset="494494/30000s" name="M4H00155" duration="1186185/30000s" start="1570569/30000s" tcFormat="NDF">
+                        <video offset="0s" ref="r3" duration="3663660/30000s">
+                            <audio lane="-1" offset="0s" ref="r3" duration="2930928/24000s" role="dialogue" outCh="L, R"/>
+                        </video>
+                    </clip>
+                </clip>
+                <clip offset="632632/30000s" name="M4H00155" duration="201201/30000s" start="989989/30000s" tcFormat="NDF">
+                    <video offset="0s" ref="r3" duration="3663660/30000s">
+                        <audio lane="-1" offset="0s" ref="r3" duration="2930928/24000s" role="dialogue" outCh="L, R"/>
+                    </video>
+                </clip>
+            </spine>
+        </sequence>
+    </project>
+</fcpxml>
