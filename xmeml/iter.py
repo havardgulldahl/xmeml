@@ -298,11 +298,12 @@ class ClipItem(Item):
                     return Ranges(framerate=_r) # gain is lower than threshold, return empty Ranges
 
             # by now, both the audio levels and gain have been None.
-            # TODO: determine if this means that the whole clip is audible
+            # testing show that  this means that the whole clip should be  audible
+            # Please file a bug if you disagree with this
 
-            logging.info('TODO. No gain and no audio levels metadata for this clip ("%s"). Should it be audible?',
+            logging.info('No gain and no audio levels metadata for this clip ("%s"), guessing it should be audible',
                          self.name)
-            return Ranges(framerate=_r) # return empty Ranges as a fallback
+            return Ranges(Range( (self.start, self.end) ), framerate=_r)
 
 
 
