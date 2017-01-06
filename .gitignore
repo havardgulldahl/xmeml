@@ -3,3 +3,5 @@
 *.pyc
 test/xmemlfiles/*.xml
 .cache
+build/
+dist/
