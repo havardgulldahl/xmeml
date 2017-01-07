@@ -1,4 +1,0 @@
-﻿Translation issue:
-	Sequence <Sequence 01> at 00:00:00:00, audio track 1: Effect <Internal Channel Volume Stereo> on Clip <Nokas.2010.NORWEGIAN.DVDSCR.XviD-NOKAS.avi> not translated.
-Translation issue:
-	Sequence <Sequence 01> at 00:00:58:11, audio track 2: Effect <Internal Channel Volume Stereo> on Clip <Nokas.2010.NORWEGIAN.DVDSCR.XviD-NOKAS.avi> not translated.
