@@ -13,9 +13,10 @@
 # to keep it, since everything is done differently
 # from the original parser.)
 #
-# (C) 2011-2016 havard.gulldahl@nrk.no
+# (C) 2011-2017 havard.gulldahl@nrk.no
 # License: BSD
 
+from builtins import str # be py2+py3 proof. pip install future 
 import lxml.etree as etree
 import logging
 
@@ -237,7 +238,7 @@ class ClipItem(Item):
         if tree.find('enabled') is None:
             self.enabled = True
         else:
-            self.enabled = unicode(tree.findtext('enabled')).upper() != 'FALSE'
+            self.enabled = str(tree.findtext('enabled')).upper() != 'FALSE'
 
     def getfilters(self):
         if len(self.filters) == 0:
@@ -292,6 +293,7 @@ class ClipItem(Item):
             #logging.debug('audibleframes: clip "%s": no keyframes found, using one value: %s',
             #              self.id, levels)
             if levels is not None:
+                #logging.debug('comparing clip level :%r with threshold :%r', levels.value, threshold)
                 if levels.value > threshold:
                     # the one level is above the threshold
                     return Ranges(Range( (self.start, self.end) ), framerate=_r)
@@ -445,7 +447,7 @@ class Effect(object):
         if _en is None:
             self.enabled = True
         else:
-            self.enabled = unicode(_en).upper() != 'FALSE'
+            self.enabled = str(_en).upper() != 'FALSE'
 
         params = tree.find('parameter')
         if params is not None:
@@ -526,7 +528,7 @@ class XmemlParser(object):
         if self.tree.find('enabled') is not None:
             # from the spec:
             # Notes If you do not specify enabled, the default setting is TRUE.
-            if unicode(self.tree.findtext('enabled')).upper() == 'FALSE':
+            if str(self.tree.findtext('enabled')).upper() == 'FALSE':
                 raise XmemlFileError('Sequence is not enabled. Nothing to do.')
         # find all file references
         File.filelist = {f.get('id'):File(f) for f in self.root.iter('file') if f.findtext('name') is not None}
@@ -545,7 +547,7 @@ class XmemlParser(object):
             if track.find('enabled') is not None:
                 # from the spec:
                 # Notes If you do not specify enabled, the default setting is TRUE.
-                if unicode(track.findtext('enabled')).upper() == 'FALSE':
+                if str(track.findtext('enabled')).upper() == 'FALSE':
                     logging.info('Track is disabled, skipping')
                     continue
 
@@ -581,7 +583,7 @@ class XmemlParser(object):
         clips = {}
         files = {}
         for clip in self.iteraudioclips():
-            if clips.has_key(clip.name):
+            if clip.name in clips:
                 clips[clip.name] += clip.audibleframes(threshold)
             else:
                 clips[clip.name] = clip.audibleframes(threshold)

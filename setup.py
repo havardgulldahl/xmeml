@@ -38,6 +38,9 @@ setup(
     license = "BSD",
     platforms = ["any"],
     zip_safe=False,
+    install_requires=[
+         'lxml',
+         'future'
+    ],
     packages=find_packages(),
-    )
-    
+)
