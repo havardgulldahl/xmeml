@@ -50,6 +50,9 @@ def test_xmemlsamples(datadir):
         print("test load {f!r}".format(f=f.basename))
         xmeml = xmemliter.XmemlParser(f.open())
         audioclips, audiofiles = xmeml.audibleranges()
+        for audionames, ranges in audioclips.items():
+            frames = len(ranges)
+            secs = ranges.seconds()
         return xmeml
 
     for xml in datadir.listdir(fil=lambda x: _fsdecode(x.basename).upper().endswith(".XML")):
