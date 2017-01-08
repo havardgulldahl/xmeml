@@ -5,3 +5,5 @@ test/xmemlfiles/*.xml
 .cache
 build/
 dist/
+
+test/xmemlfiles
