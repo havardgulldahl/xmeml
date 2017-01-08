@@ -452,7 +452,7 @@ class Effect(object):
         params = tree.find('parameter')
         if params is not None:
             self.parameters = self.getparameters(params)
-            self.value = params.findtext('value', 0.0)
+            self.value = float(params.findtext('value', 0.0))
             self.max = float(tree.findtext('parameter/valuemax'))
             self.min = float(tree.findtext('parameter/valuemin'))
         else:
