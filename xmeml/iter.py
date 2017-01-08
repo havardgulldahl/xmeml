@@ -69,7 +69,7 @@ class Range(object):
         return "Range"+repr(self.get())
 
     def __string__(self):
-        return u'<Range: %.5(start)f–%.5(end)f>' % vars(self)
+        return '<Range: %.5(start)f–%.5(end)f>' % vars(self)
 
     def __add__(self, other):
         self.extend( (other.start, other.end) )
@@ -78,7 +78,7 @@ class Range(object):
     def __len__(self):
         if None in (self.start, self.end):
             raise TypeError("Range is not complete")
-        return self.end-self.start
+        return int(self.end-self.start)
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end
