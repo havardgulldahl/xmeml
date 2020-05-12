@@ -594,7 +594,6 @@ class Marker(object):
         )
 
 
-
 class XmemlParser(object):
     def __init__(self, filename):
         try:
@@ -638,6 +637,40 @@ class XmemlParser(object):
         """Iterator to get all sequence markers."""
         for _marker in self.root.findall("sequence/marker"):
             yield Marker(_marker)
+
+    def itervideoclips(self):
+        """Iterator to get all video clips."""
+        video = self.root.find("sequence/media/video")
+        seq_rate = self.root.find("sequence/rate")
+        sequenceframerate = getframerate(
+            float(seq_rate.findtext("timebase")), seq_rate.findtext("ntsc") == "TRUE"
+        )
+        logging.info("itervideoclips: got sequenceframerate: %r", sequenceframerate)
+        for track in video.iterchildren(tag="track"):
+            if track.find("enabled") is not None:
+                # from the spec:
+                # Notes If you do not specify enabled, the default setting is TRUE.
+                if str(track.findtext("enabled")).upper() == "FALSE":
+                    logging.info("Track is disabled, skipping")
+                    continue
+
+            for clip in track.iterchildren(tag="clipitem"):
+                ci = ClipItem(clip, sequenceframerate)
+                if not ci.enabled:
+                    logging.info("Clip %s/%s is disabled, skipping", ci.id, ci.name)
+                    continue
+                if ci.isnestedsequence:
+                    # print clip.find('sequence').get('name')
+                    for nestedtrack in clip.find("sequence/media/video").iterchildren(
+                        tag="track"
+                    ):
+                        for nestedclip in nestedtrack.iterchildren(tag="clipitem"):
+                            nestedci = ClipItem(nestedclip, sequenceframerate)
+                            # from pprint import pprint
+                            # pprint(vars(nestedci))
+                            yield nestedci
+                    continue
+                yield ci
 
     def iteraudioclips(self, onlypureaudio=True):
         """Iterator to get all audio clips.
