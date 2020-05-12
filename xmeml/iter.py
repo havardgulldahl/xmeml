@@ -84,7 +84,8 @@ class Range(object):
         return "Range" + repr(self.get())
 
     def __string__(self):
-        return "<Range: %.5(start)f–%.5(end)f>" % vars(self)
+        # return "<Range: %.5(start)f–%.5(end)f>" % vars(self)
+        return "<Range: {start:.5f}–{end:.5f}>".format(start=self.start, end=self.end)
 
     def __add__(self, other):
         self.extend((other.start, other.end))
@@ -130,7 +131,10 @@ class Ranges(object):
         return "Ranges: " + repr(self.r)
 
     def __str__(self):
-        return u"<Ranges: %i ranges, totalling %.2d frames>" % (len(self.r), len(self))
+        # return u"<Ranges: %i ranges, totalling %.2d frames>" % (len(self.r), len(self))
+        return u"<Ranges: {:i} ranges, totalling {:.2d} frames>".format(
+            len(self.r), len(self)
+        )
 
     def __add__(self, other):
         for range in other.r:
@@ -563,7 +567,11 @@ Conversely, to convert decibels to gain, use
             self.gain = 10 ** (self.decibel / 20)
 
     def __str__(self):
-        return "<Volume: %(decibel)s dB, gain: %(gain)s.>" % (vars(self))
+        return "<Volume: {decibel:s} dB, gain: {gain:s}.>".format(
+            decibel=self.decibel, gain=self.gain
+        )
+
+
 
 
 class XmemlParser(object):
