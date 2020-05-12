@@ -510,16 +510,20 @@ class Effect(object):
         else:
             self.enabled = str(_en).upper() != "FALSE"
 
+        self.value = None
+        self.max = None
+        self.min = None
+
         params = tree.find("parameter")
         if params is not None:
             self.parameters = self.getparameters(params)
-            self.value = float(params.findtext("value", 0.0))
-            self.max = float(tree.findtext("parameter/valuemax"))
-            self.min = float(tree.findtext("parameter/valuemin"))
-        else:
-            self.value = None
-            self.max = None
-            self.min = None
+            try:
+                self.value = float(params.findtext("value", 0.0))
+                self.max = float(tree.findtext("parameter/valuemax"))
+                self.min = float(tree.findtext("parameter/valuemin"))
+            except ValueError:
+                # element not present
+                pass
 
     def getparameters(self, tree):
         for el in tree.iterchildren(tag="keyframe"):
