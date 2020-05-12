@@ -13,7 +13,7 @@
 # to keep it, since everything is done differently
 # from the original parser.)
 #
-# (C) 2011-2017 havard.gulldahl@nrk.no
+# (C) 2011-2020 havard.gulldahl@nrk.no
 # License: BSD
 
 from builtins import str  # be py2+py3 proof. pip install future
