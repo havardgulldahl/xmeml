@@ -374,7 +374,6 @@ class ClipItem(Item):
             )
             return Ranges(Range((self.start, self.end)), framerate=_r)
 
-
         # At this point, we have a keyframelist to go through
         # add our subclip inpoint to the keyframelist if it's not in it already.
         #
@@ -572,6 +571,24 @@ Conversely, to convert decibels to gain, use
         )
 
 
+class Marker(object):
+    """<marker> Encodes a named time or range of time in a clip or sequence.
+
+    Parents clip, clipitem, sequence
+    Subelements +*name, +in, +out,*marker, *comment, color
+    """
+
+    def __init__(self, tree):
+        self.inpoint = int(tree.findtext("in"))
+        self.outpoint = int(tree.findtext("out"))
+        self.name = tree.findtext("name")
+        self.comment = tree.findtext("comment")
+
+    def __str__(self):
+        return "<Marker: {:s} <{:i}-{:i}>".format(
+            self.name, self.inpoint, self.outpoint
+        )
+
 
 
 class XmemlParser(object):
@@ -612,6 +629,11 @@ class XmemlParser(object):
             for f in self.root.iter("file")
             if f.findtext("name") is not None
         }
+
+    def itermarkers(self):
+        """Iterator to get all sequence markers."""
+        for _marker in self.root.findall("sequence/marker"):
+            yield Marker(_marker)
 
     def iteraudioclips(self, onlypureaudio=True):
         """Iterator to get all audio clips.
